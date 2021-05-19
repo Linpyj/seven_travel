@@ -20,6 +20,7 @@ Auth::routes([
 ]);
 //ログイン状態でアクセス認証
 Route::group(['middleware' => ['auth']], function (){
-    Route::get('home', 'HomeController@index')->name('home');
+    Route::get('home', 'HotelController@index')->name('home');
+    Route::resource('hotels', 'HotelController');
 });
 
