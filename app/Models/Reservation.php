@@ -11,4 +11,8 @@ class Reservation extends Model
     protected $fillable = [
         'user_id', 'plan_id', 'check_in', 'check_out', 'status',
     ];
+
+    public function user(){
+        return $this->belongosTo(User::class);
+    }
 }

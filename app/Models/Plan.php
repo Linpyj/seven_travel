@@ -11,9 +11,11 @@ class Plan extends Model
     protected $fillable = [
         'name', 'hotel_id', 'price', 'number_of_room', 'remarks',
     ];
+
     public function hotel(){
         return $this->belongsTo(Hotel::class);
     }
+    
     public function reservations(){
         return $this->hasMany(Reservation::class);
     }
