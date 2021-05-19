@@ -58,6 +58,7 @@ display: flex;
 margin: 0;
 padding: 0;
 list-style: none;
+background: #028568;
 }
 .navigation li {
 padding: 0 10px;

@@ -3,23 +3,19 @@
 @section('content')
 
     <form action="{{ route('top')}}" method="get">
-        <!-- トップへＧＥＴメソッドで送りだす -->
+        
         @include('search')
         <!--サーチファイルの差し込み -->
         <button type="submit">検索</button>
     </form>
 
-    
-        
-        
-
-            @foreach($products as $product)
+            @foreach($plans as $plan)
             <!-- 検索結果を連想配列として一つずつ取り出して表示 -->
                 <tr>
-                    <td>{{ $product->id }}</td>
-                    <td>{{ $product->name }}</td>
-                    <td>{{ $product->category->name }}</td>
-                    <!-- カテゴリーテーブルの名前を呼び出す-->
+                    <td>{{ $plan->hotel->image }}</td>
+                    <td><a href="{{ route ('hotels.show', $hotel->id) }}">{{ $plan->hotel->name }}</a></td>
+                    <td><a href="{{ route ('plans.show', $plan->id) }}">{{ $plan->name }}</a></td>
+                    <td>{{ $plan->price }}</td>
                     <td>{{ $product->price }}</td>
                 </tr>
             @endforeach
