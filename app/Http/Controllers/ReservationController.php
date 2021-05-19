@@ -13,7 +13,9 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        //
+        // 予約履歴を参照
+        $reservations =  Reservation::where('user_id', '==', Auth::id)->get();
+        return view('/', ['reservations' => $reservations]);
     }
 
     /**
@@ -23,7 +25,9 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        //
+        // 予約画面を表示
+        $reservation = new Reservation;
+        return view('/', ['reservation' => $reservation]);
     }
 
     /**
@@ -34,41 +38,10 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        //　予約を保存
+        echo $request;
+        $reservation = $request->user()->reservations()->create($request->all());
+        return redirect(route('/'));
     }
 
     /**
@@ -77,8 +50,10 @@ class ReservationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Reservation $reservation)
     {
-        //
+        //　予約を削除（キャンセル）
+        $reservation->delete();
+        return redirect(route('/'));
     }
 }
