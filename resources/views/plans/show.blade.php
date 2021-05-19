@@ -7,7 +7,7 @@
 <p><img src="{{ $plan->hotel->image }}" alt="{{ $plan->hotel->id }}"></p>
 
 <dl>
-    <dt>プラン</dt>
+    <dt>プラン一覧</dt>
     <dd>{{ $plan->name }}</dd>
     
     <dt>ホテル</dt>
