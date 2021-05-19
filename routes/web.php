@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'Auth\LoginController@showLoginForm');
+Auth::routes([
+    'reset' => false,
+    'confirm' => false,
+]);
+//ログイン状態でアクセス認証
+Route::group(['middleware' => ['auth']], function (){
+
 });
+
