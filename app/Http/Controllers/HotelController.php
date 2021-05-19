@@ -40,7 +40,10 @@ class HotelController extends Controller
             'category_id' => 'required|integer',
             'address' => 'required|max:100',
             'tel' => 'required|numeric|digits_between:8,11',
-            'check_in' => 'required|',
+            'check_in' => 'required',
+            'check_out' => 'required',
+            'remarks' => 'max:100',
+            'prefecture' => 'required',
         ]);
     }
 
@@ -75,7 +78,16 @@ class HotelController extends Controller
      */
     public function update(Request $request, Hotel $hotel)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'category_id' => 'required|integer',
+            'address' => 'required|max:100',
+            'tel' => 'required|numeric|digits_between:8,11',
+            'check_in' => 'required',
+            'check_out' => 'required',
+            'remarks' => 'max:100',
+            'prefecture' => 'required',
+        ]);
     }
 
     /**

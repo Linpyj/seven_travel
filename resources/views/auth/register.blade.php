@@ -1,9 +1,9 @@
-@extends()
+@extends('layouts.app')
 
-@section()
+@section('content')
 <h1>会員登録</h1>
-@include()
-<form action="{{route('')}}" method="post">
+
+<form action="{{route('register')}}" method="post">
     @csrf
     <p>
     <label>名前<br>
@@ -41,7 +41,9 @@
            value=""></label>
     </p>
     <p>
-        <button type="submit">確認</button>
+           <button type="submit">新規登録</button>
     </p>
 </form>
+<a href="{{ route('login') }}">ログイン</a>
+    
 @endsection
