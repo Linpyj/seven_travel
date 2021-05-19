@@ -45,7 +45,7 @@ class HotelController extends Controller
             'remarks' => 'max:100',
             'prefecture' => 'required',
         ]);
-        $book = $request->category()->plans()->reviews()->create($request->all());
+        $request->category()->plans()->reviews()->create($request->all());
         return redirect(route(''));
     }
 
@@ -57,7 +57,8 @@ class HotelController extends Controller
      */
     public function show(Hotel $hotel)
     {
-        return view('', ['hotel' => $hotel]);
+        $hotel = Hotel::with(['category', 'plans'])->get();
+        return view('hotels.show', ['hotel' => $hotel]);
     }
 
     /**
