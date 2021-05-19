@@ -1,20 +1,15 @@
 <dl>
-<dt>カテゴリ</dt>
+<dt>所在地</dt>
 <dd>
     <select name="location_id">
-     <!-- カテゴリメニュー-->
+     
 
         <option value=""></option>
-        <!-- カテゴリを選択しない時にセレクトメニューで表示するもの-->
+        
 
          @foreach ($prefectures as $prefecture)
-         <!-- カテゴリーテーブルから1件ずつ取り出す-->
      
             <option value="{{ $prefecture->id}}" {{ request('_id')==$prefecture->id ? 'selected' : '' }}>
-            <!-- カテゴリーの名前の表示--><!--選択しているカテゴリID -->
-            <!-- リクエストの中のカテゴリIDとバリュー属性のIDが一致したらSELECTEDという属性をつける-->
-            <!-- 参考演算式 [条件式 ?（if forの意味） TRUEの処理:FALSEの処理 ] -->
-
              {{ $prefecture->name }} ({{ $prefecture->hotels_count }})
              <!-- カテゴリーの名前の表示--><!-- カテゴリーごとの製品数の表示-->
 
