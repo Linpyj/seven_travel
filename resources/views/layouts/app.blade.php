@@ -11,7 +11,7 @@
     
     <header>
         <div class="container">
-            <a class="brand" href="/">{{ config('app.name') }}</a> 
+            <a class="nav-item brand" href="/">{{ config('app.name') }}</a> 
             @include('commons/nav')
             <!-- config関数（configディレクト内のappファイルの中で設定項目名としてnameを反映）-->
             <!-- 'name' => env('APP_NAME', 'Laravel'), envファイルで定義したアプリケーション名-->
