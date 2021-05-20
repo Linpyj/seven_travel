@@ -2,14 +2,14 @@
 
 @section('content')
 
-    <form action="{{ route('top')}}" method="get">
-        
-        @include('search')
+    <form action="{{ route('search')}}" method="post">
+        @csrf
+        @include('plans.search')
         <!--サーチファイルの差し込み -->
         <button type="submit">検索</button>
     </form>
 
-            @foreach($plans as $plan)
+            {{-- @foreach($plans as $plan)
             <!-- 検索結果を連想配列として一つずつ取り出して表示 -->
                 <tr>
                     <td>{{ $plan->hotel->image }}</td>
@@ -21,6 +21,6 @@
             @endforeach
 
     
-     {{ $products->appends(Request::all())->links() }}
+     {{ $products->appends(Request::all())->links() }} --}}
      <!-- ページネーションを自動的に付与 -->
  @endsection

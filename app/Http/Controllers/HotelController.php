@@ -45,7 +45,7 @@ class HotelController extends Controller
             'remarks' => 'max:100',
             'prefecture' => 'required',
         ]);
-        $request->category()->plans()->reviews()->create($request->all());
+        $request->category()->create($request->all());
         return redirect(route(''));
     }
 
