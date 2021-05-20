@@ -47,4 +47,15 @@
 
 </dl>
 
+<p>
+    @if(Auth::user()->is_admin)
+    
+        <p><button type=“button” onclick="location.href='{{}}'" >プランの追加</button></p>
+
+        <p><button type=“button” onclick="location.href='{{}}'" >ホテル情報編集</button></p>
+
+        <p><button type=“button” onclick="location.href='{{}}'" >ホテルの削除</button></p>
+    @endif
+</p>
+
 @endsection

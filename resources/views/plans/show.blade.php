@@ -28,4 +28,14 @@
 
 <p><button type=“button” onclick="location.href='{{}}'" >予約フォームへ</button></p>
 
+<p>
+    @if($book->user_id == Auth::id())
+    
+
+        <p><button type=“button” onclick="location.href='{{}}'" >プラン情報編集</button></p>
+
+        <p><button type=“button” onclick="location.href='{{}}'" >プランの削除</button></p>
+    @endif
+</p>
+
 @endsection
