@@ -7,7 +7,7 @@
 <p><img src="{{ $plan->hotel->image }}" alt="{{ $plan->hotel->id }}"></p>
 
 <dl>
-    <dt>プラン一覧</dt>
+    <dt>プラン名</dt>
     <dd>{{ $plan->name }}</dd>
     
     <dt>ホテル</dt>
@@ -29,9 +29,8 @@
 <p><button type=“button” onclick="location.href='{{}}'" >予約フォームへ</button></p>
 
 <p>
-    @if($book->user_id == Auth::id())
+    @if(Auth::user()->is_admin)
     
-
         <p><button type=“button” onclick="location.href='{{}}'" >プラン情報編集</button></p>
 
         <p><button type=“button” onclick="location.href='{{}}'" >プランの削除</button></p>
