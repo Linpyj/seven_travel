@@ -12,7 +12,7 @@
 <p>上記のホテルとプラン名で予約します。</p>
 <p>氏名とチェックイン日、チェックアウト日を入力してください。</p>
 
-<form action="{{route('')}}" method="post">
+<form action="{{route('home')}}" method="post">
     @csrf
     
     <div>

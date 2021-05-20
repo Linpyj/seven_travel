@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form action="{{ route('top')}}" method="get">
+    <form action="{{ route('home')}}" method="get">
         
         @include('search')
         <!--サーチファイルの差し込み -->

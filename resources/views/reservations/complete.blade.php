@@ -7,6 +7,6 @@
 <p>予約の詳細・キャンセルはマイページで確認できます。</p>
 <p>当日は気を付けてお越しください。</p>
 
-<p><button type=“button” onclick="location.href='{{}}'" >ホームに戻る</button></p>
+<p><button type=“button”><a href="{{ route('home') }}">ホームに戻る</button></p>
     
 @endsection

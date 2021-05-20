@@ -19,7 +19,7 @@
     <th>プラン</th>
     @foreach($hotels as $hotel)
         <tr>   
-            <td><a href="{{ route ('plans.show', $hotel->plan->id) }}">{{ $hotel->plan->name }}</a></td>
+            <td><a href="{{ route('plans.show', $hotel->plan->id) }}">{{ $hotel->plan->name }}</a></td>
         </tr>
     @endforeach
 
@@ -50,11 +50,11 @@
 <p>
     @if(Auth::user()->is_admin)
     
-        <p><button type=“button” onclick="location.href='{{}}'" >プランの追加</button></p>
+        <p><button type=“button”><a href="{{ route('home') }}">プランの追加</button></p>
 
-        <p><button type=“button” onclick="location.href='{{}}'" >ホテル情報編集</button></p>
+        <p><button type=“button”><a href="{{ route('home') }}">ホテル情報編集</button></p>
 
-        <p><button type=“button” onclick="location.href='{{}}'" >ホテルの削除</button></p>
+        <p><button type=“button”><a href="{{ route('home') }}">ホテルの削除</button></p>
     @endif
 </p>
 

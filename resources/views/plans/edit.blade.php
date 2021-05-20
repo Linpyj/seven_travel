@@ -4,7 +4,7 @@
 
 <h1>プラン情報編集</h1>
 
-<form action="{{ route('plans.update', $plan->id) }}" method="POST">
+<form action="{{ route('home', $plan->id) }}" method="POST">
 
     @method('put')
     @csrf

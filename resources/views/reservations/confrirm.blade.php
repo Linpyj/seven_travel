@@ -5,7 +5,7 @@
 <h1>予約確認</h1>
 <p>こちらの予約でお間違えないですか？</p>
 
-<form action="{{route('')}}" method="GET">
+<form action="{{ route('home') }}" method="GET">
     @csrf
 
     <div>

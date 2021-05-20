@@ -6,10 +6,10 @@
 <p>このプラン情報を本当に削除しますか？</p>
 
     <p>
-        <button type="submit"  onclick="location.href='{{}}'" >削除する</a></button>
+        <button type=“button”><a href="{{ route('home') }}">削除する</a></button>
     </p>
     <p>
-        <button type="submit"  onclick="location.href='{{}}'">戻る</a></button>
+        <button type=“button”><a href="{{ route('home') }}">戻る</a></button>
     </p>
 @endsection
 
