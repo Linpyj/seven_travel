@@ -13,8 +13,25 @@
 <p>氏名とチェックイン日、チェックアウト日を入力してください。</p>
 
 <form action="{{route('')}}" method="post">
-    @include('reservations/form')
-           <button type="submit">確認</button>
+    @csrf
+    
+    <div>
+        <label>お名前</label>
+        <input type="text" name="name" value="{{old('name')}}">
+    </div>
+
+    <div>
+        <label>チェックイン日</label>
+        <input type="date" name="check_in" value="{{old('check_in')}}">
+    </div>
+
+    <div>
+        <label>チェックアウト日</label>
+        <input type="date" name="check_out" value="{{old('check_out')}}"></label>
+    </div>
+
+    <button type="submit">確認</button>
+
 </form>
     
 @endsection
