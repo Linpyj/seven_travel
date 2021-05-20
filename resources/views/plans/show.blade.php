@@ -7,11 +7,11 @@
 <p><img src="{{ $plan->hotel->image }}" alt="{{ $plan->hotel->id }}"></p>
 
 <dl>
-    <dt>プラン一覧</dt>
+    <dt>プラン名</dt>
     <dd>{{ $plan->name }}</dd>
     
     <dt>ホテル</dt>
-    <dd><a href="{{ route ('hotels.show', $plan->hotel->id) }}">{{ $plan->hotel->name }}</a></dd>
+    <dd><a href="{{ route('hotels.show', $plan->hotel->id) }}">{{ $plan->hotel->name }}</a></dd>
 
     <dt>見どころ</dt>
     <dd>{{ $plan->remarks }}</dd>
@@ -26,6 +26,15 @@
 
 <p>このプランで予約しますか？</p>
 
-<p><button type=“button” onclick="location.href='{{}}'" >予約フォームへ</button></p>
+<p><button type=“button”><a href="{{ route('home') }}"> 予約フォームへ</button></p>
+
+<p>
+    @if(Auth::user()->is_admin)
+    
+        <p><button type=“button”><a href="{{ route('home') }}">プラン情報編集</button></p>
+
+        <p><button type=“button”><a href="{{ route('home') }}">プランの削除</button></p>
+    @endif
+</p>
 
 @endsection
