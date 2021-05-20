@@ -23,4 +23,6 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('home', 'HotelController@index')->name('home');
     Route::resource('hotels', 'HotelController');
 });
-
+Route::get('/', 'PlanController@search');
+Route::resource('plans', 'PlanController');
+Route::post('search', 'PlanController@search')->name('search');
