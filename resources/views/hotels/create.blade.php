@@ -3,7 +3,7 @@
 @section('content')
 <h1>ホテル追加</h1>
 
-<form action="{{route('')}}" method="post" id="create-form">
+<form action="{{route('home')}}" method="post" id="create-form">
     @csrf
     <p>
     <label>名前<br>
