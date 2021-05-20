@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>会員一覧</h1>
-<form action="{{route('')}}" method="post">
+<form action="{{route('home')}}" method="post">
 @csrf
 <p>
 <label>絞り込み<br>

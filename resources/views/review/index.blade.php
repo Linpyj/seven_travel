@@ -3,9 +3,9 @@
 @section('content')
 @foreach($reviews as $review)
     <tr>
-        <td>{{ $hotel->review->title }}</td>
-        <td>{{ $hotel->review->content }}</td>
-        <td>{{ $hotel->review->created_at }}</td>
+        <td>{{ $hotel->reviews()->title }}</td>
+        <td>{{ $hotel->reviews()->content }}</td>
+        <td>{{ $hotel->reviews()->created_at }}</td>
     </tr>
 @endforeach
 
