@@ -11,6 +11,10 @@ body {
     min-height: 100vh;
 }
 
+.nav-item {
+    color: white;
+}
+
 a:link {
     text-decoration: none;
 }
