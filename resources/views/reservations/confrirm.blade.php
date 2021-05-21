@@ -10,7 +10,7 @@
 
     <div>
         <label>ホテル</label>
-        <span>{{ $plan->hotel()->name }}</span>
+        <span>{{ $plan->hotel->name }}</span>
         <input type="text" name="hotel" value="{{'hotel'}}"  type="hidden">
     </div>
     <!--ホテルの項目いらない？-->

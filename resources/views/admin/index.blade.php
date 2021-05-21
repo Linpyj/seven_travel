@@ -13,8 +13,8 @@
 </form>
 <table>
     <tr>
-        <td><a href="{{ route('') }}">ホテルを追加する</a></td>
-        <td><a href="{{ route('') }}">会員一覧</a></td>
+        <td><a href="{{ route('home') }}">ホテルを追加する</a></td>
+        <td><a href="{{ route('home') }}">会員一覧</a></td>
     </tr>
 </table>    
 @endsection
