@@ -3,6 +3,7 @@
 @section('content')
     <form action="{{ route('home')}}" method="get">
 
+
         @csrf
         @include('plans.search')
 
