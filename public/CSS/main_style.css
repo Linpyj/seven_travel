@@ -1,10 +1,4 @@
-/* 教科書からコピペしたレイアウト 
-
-html {
-    font-size: 90%;
-    line-height: 1.8;
-}
-
+/* フォームレイアウト　*/
 
 ここまで */
 
@@ -20,6 +14,8 @@ textarea {
     border-radius: 4px;
     border: 1.5px solid #009588;
 }
+/* フォームレイアウトここまで　*/
+
 
 body {
     font-family: "Arial",  sans-serif;
@@ -28,7 +24,7 @@ body {
 
 .container {
     max-width: 1000px;
-    max-height: 1000px;
+    max-height: 10000px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -60,12 +56,9 @@ header .container {
 header .brand {
     display: block;
 }
-
 /* ヘッダーレイアウトここまで */
 
 /* ナビゲーションレイアウト */
- 
-
 .navigation {
     display: flex;
     margin: 0;
@@ -149,6 +142,7 @@ label {
 
 margin-bottom: 5px;
 color: #009588;
+font-weight: bold;
 }
 
 /* ラベルレイアウトここまで */
@@ -228,7 +222,8 @@ padding: 8px;
 
 section {
   max-width: 300px;
-  margin: 0 auto;
+  margin: auto;
+  margin-bottom:20p
 }
 
 a.btn_1 {
@@ -242,6 +237,7 @@ a.btn_1 {
   border: #009588;
   position: relative;
 }
+
 a.btn_1 span {
   display: flex;
   justify-content: center;
@@ -272,7 +268,7 @@ a.btn_1:hover span {
 button.btn_2 {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
   width: 100%;
   height: 50px;
   box-sizing: border-box;
@@ -286,7 +282,7 @@ button.btn_2 span {
   align-items: center;
   width: 100%;
   height: 50px;
-  background: #009588;;
+  background: #009588;
   box-sizing: border-box;
   color: #ffffff;
   font-weight: bold;
@@ -313,4 +309,43 @@ button.btn_2:hover span {
   margin-bottom: 20px;
   font-size: 13px;
 }    
+
 /*ログインページレイアウトここまで */
+
+/*会員登録ページレイアウト */
+
+.second-form {
+     width: 400px;
+     height:780px;
+     margin-left: 260px;
+     margin-top: 30px;
+     padding:30px;
+     border-radius: 10px;
+     border: 1.5px solid  #009588 ;
+     background-color: #ffffff;
+    }
+
+.button-container{
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  height: 100px;
+  align-items: space-between;
+}
+
+.button-container button{
+ margin-bottom: 100px; 
+ width: 200px;
+ margin: 0 auto;
+}
+
+.button-container div a{
+ width: 200px;
+ margin: 0 auto;
+}
+
+#login-script {
+  text-align: center;
+  font-size: 13px;
+}   
+/*会員登録ページレイアウトここまで */
