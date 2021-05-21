@@ -16,6 +16,10 @@ class ReviewController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required|max:50',
+            'content' => 'required|max:300',
+        ]);
         $review = new Review; //
         $review->create($request->all());
         return redirect(route('/.index')); //
