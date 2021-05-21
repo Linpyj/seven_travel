@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//ログイン機能
 Route::get('/', 'Auth\LoginController@showLoginForm');
 Auth::routes([
     'reset' => false,
@@ -20,9 +20,15 @@ Auth::routes([
 ]);
 //ログイン状態でアクセス認証
 Route::group(['middleware' => ['auth']], function (){
+    //ログイン時、ホーム画面
     Route::get('home', 'HotelController@index')->name('home');
+
     Route::resource('hotels', 'HotelController');
+    Route::resource('plans', 'PlanController');
+    Route::resource('reviews', 'ReviewController');
+    Route::resource('reservations', 'ReservationController');
+    Route::resource('users', 'UsersController');
+
+
+    
 });
-Route::get('/', 'PlanController@index');
-Route::resource('plans', 'PlanController');
-Route::post('plans/index', 'PlanController@index')->name('index');
