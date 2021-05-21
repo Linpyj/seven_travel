@@ -1,19 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
+<h1>ログイン</h1>
 
-<div class="top">
-    <h1 class="title">SEVEN TRAVEL</h1>
-
-    <p class="copy">行きたい、がきっと見つかる。</p>
-    <p>This is sample texts.This is sample texts.This is sample texts.This is sample texts.</p>
-</div>
-
-<p class="subtitle">SEVEN TRAVELおすすめのホテル</p>
-<p id="catch">SEVEN TRAVEL厳選！各シーズンおすすめホテル</p>
-
-<a href="/"><img src="/sample1.jpg" alt="spring_hotel" class="top_image"></a>
-<a href="/"><img src="/sample1.jpg" alt="fall_hotel" class="top_image"></a>
-<a href="/"><img src="/sample1.jpg" alt="winter_hotel" class="top_image"></a>
-    
+<form action="{{route('login')}}" method="post">
+    @csrf
+    <p>
+    <label>メールアドレス<br>
+    <input type="email" name="email"
+           value="{{old('email')}}"></label>
+    </p>
+    <p>
+    <label>パスワード<br>
+    <input type="password" name="password"
+           value=""></label>
+    </p>
+    <p>
+        <button type="submit">ログイン</button>
+    </p>
+    <p>または</p>
+    <p>
+        <a href="{{ route('register') }}">新規登録</a>
+    </p>
+</form>
 @endsection

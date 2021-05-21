@@ -33,10 +33,15 @@ body {
     padding: 20px;
 }
 
+
 h1 {
-  font-weight:normal;
-  font-size:35px;
+  font-weight:bold;
+  font-size:25px;
+  color: #009588;
+  text-align: center;
   }
+
+ 
  
 
 /* ヘッダーレイアウト */
@@ -59,6 +64,7 @@ header .brand {
 /* ヘッダーレイアウトここまで */
 
 /* ナビゲーションレイアウト */
+ 
 
 .navigation {
     display: flex;
@@ -71,6 +77,19 @@ header .brand {
     padding: 0 10px;
     color: #ddd;
     }
+
+.navigation a {
+	text-decoration:none;
+}
+
+.navigation a:link {
+	color : #ffffff;
+}
+
+.navigation a:visited{
+	color : #ffffff;
+} 
+
 /* ナビゲーションレイアウトここまで */
 
 /* フッターレイアウト */
@@ -124,10 +143,18 @@ margin-bottom: 15px;
 }
 /* 定義レイアウトここまで */
 
+/* ラベルレイアウト */
 
-form {
-
+label {
+font-weight: bold;
+margin-bottom: 5px;
+color: #009588;
 }
+
+/* ラベルレイアウトここまで */
+
+
+
 /* リストレイアウト */
 ul.pagination {
 padding: 0;
@@ -142,24 +169,19 @@ padding: 8px;
 
 /* リストレイアウトここまで */
 
-/* リンクレイアウト */
+   /* リンクレイアウト */
 
-  a	{
-	text-decoration:none;
-    }
-
-  a:link {
-	color : #ffffff;
-    }
-
-  a:visited	{
-	color : #ffffff;
-    } 
+  
    
    /* リンクレイアウトここまで */
 
   /* トップページレイアウト */
     
+    .title {
+    font-weight:normal;
+    font-size:35px;
+    color: #000;
+    }   
     
     .copy{
     font-size: 15px;

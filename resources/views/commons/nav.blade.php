@@ -1,9 +1,9 @@
 
     <ul class="navigation">
         
-        <li><a href="{{ route('home') }}">ホテル検索</a></li>
+        <li ><a href="{{ route('home') }}" class="navigation">ホテル検索</a></li>
 
-        <li><a href="{{ route('home') }}">ホテル一覧</a></li>
+        <li><a href="{{ route('home') }}" class="navigation">ホテル一覧</a></li>
 
-        <li><a href="{{ route('home') }}">マイぺージ</a></li>
+        <li><a href="{{ route('home') }}" class="navigation">マイぺージ</a></li>
     </ul>
