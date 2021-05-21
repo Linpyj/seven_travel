@@ -52,9 +52,15 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //　予約を保存
         echo $request;
-        $reservation = $request->user()->reservations()->create($request->all());
+
+        // 予約を保存
+        $reservation = $request->user->reservations->create($request->all());
+
+        // 予約対象のプランを検索＆該当プランの部屋数を予約テーブルにも保存
+        $plan = Plan::where('id', '==', $request->plan_id);
+        $reservation->number_of_rooms = $plan->number_of_rooms;
+        $reservation->save();
         return redirect(route('/'));
     }
 

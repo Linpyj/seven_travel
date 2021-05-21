@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ route('home')}}" method="get">
+    <form action="{{ route('plans.index')}}" method="get">
 
 
         @csrf

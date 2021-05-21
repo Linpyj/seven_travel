@@ -17,28 +17,31 @@ class PlanController extends Controller
     
     public function index(Request $request)
     { 
-        if($request->check_in && $request->check_out){
+        if ($request->check_in && $request->check_out) {
             $reservation = Plan::withCount(['reservations' => function (Builder $query) use ($request){
                 $query->where('check_in','<=', $request->check_out)->where('check_out', '>=', $request->check_in);
             }])->get();
-            dd($reservation);
-            //$query = Plan::with('hotel')->where('id', '==', $reservation->id)->where('number_of_room', '>', $reservation->reservations_count);
-            // $plans = $query->get();
-            // dd($plans);
-            
-        }else{
+            echo "reservations";
+            echo $reservation;
+            // foreach($plans as $plan) {
+            //     echo $plan;
+            // }
+            // $query = Plan::with('hotel')->where('id', '==', $reservation->id)->where('number_of_room', '>', $reservation->reservations_count);
+            $query = Reservation::where('number_of_rooms', '>', $reservation->reservations_count);
+            $plans = $query->get();
+            dd($plans);
+        } else {
             $query = Plan::with('hotel');
         }
-        if($request->price){
+        if ($request->price) {
             $max = $request->price + 10000;
             $query->where('price', '>=', $request->price)->where('price', '<=', $max);
         }
-        if($request->prefecture){
+        if ($request->prefecture) {
             $query->where('prefecture', '==', $request->prefecture);
         }
-    
         $plans = $query->paginate(10);
-        return view('plans/index', ['plans' => $plans]);
+        return view('plans/index');
     }
 
     /**
