@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form action="{{ route('search')}}" method="post">
+    <form action="{{ route('index')}}" method="post">
         @csrf
         @include('plans.search')
         <!--サーチファイルの差し込み -->

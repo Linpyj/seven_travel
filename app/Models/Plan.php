@@ -19,4 +19,5 @@ class Plan extends Model
     public function reservations(){
         return $this->hasMany(Reservation::class);
     }
+    
 }
