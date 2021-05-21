@@ -2,19 +2,19 @@
 
 @section('content')
 <h1>ホテル一覧</h1>
-<form action="{{route('login')}}" method="post">
+<a href="{{ route('home') }}">ホテルを追加する</a>
+<a href="{{ route('home') }}">会員一覧</a>
+<form action="{{route('home')}}" method="get">
 @csrf
-<p>
-<label>絞り込み<br>
-<input type="text" name="text"
-       value="{{old('text')}}"></label>
-</p>
-<p><button type="submit">検索</button></p>
+@include('hotels.search')
+<button type="submit">検索</button>
 </form>
-<table>
+@foreach($hotels as $hotel)
+<!-- 検索結果を連想配列として一つずつ取り出して表示 -->
     <tr>
-        <td><a href="{{ route('') }}">ホテルを追加する</a></td>
-        <td><a href="{{ route('') }}">会員一覧</a></td>
+        <td><a href="{{ route('home') }}">ホテルを追加する</a></td>
+        <td><a href="{{ route('home') }}">会員一覧</a></td>
     </tr>
-</table>    
+@endforeach
+{{ $products->appends(Request::all())->links() }}
 @endsection

@@ -3,7 +3,7 @@
 @section('content')
 <h1>プラン追加</h1>
 
-     <form action="{{  route('home', $plan ) }}" method="POST" id="create-form">
+     <form action="{{ route('home', $plan) }}" method="POST" id="create-form">
          @csrf
 
         <dl>
