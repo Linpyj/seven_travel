@@ -4,6 +4,8 @@
 <h1>会員登録</h1>
 
 <form action="{{route('register')}}" method="post">
+
+<div class="second-form">
     @csrf
     <p>
     <label>名前<br>
@@ -40,10 +42,22 @@
     <input type="password" name="password_confirmation"
            value=""></label>
     </p>
-    <p>
-           <button type="submit">新規登録</button>
-    </p>
-</form>
-<a href="{{ route('login') }}">ログイン</a>
     
+
+   
+</div>
+
+<div class="button-container">
+    <button type="submit" class="btn_2"><span>新規登録</span></button>
+    
+    <p id="login-script">会員登録済みの方はこちら</p><br>
+
+    <div>
+       <a href="{{ route('login') }}" class="btn_1"><span>ログイン</span></a>
+    </div>
+
+</div>
+
+</form>
+
 @endsection
