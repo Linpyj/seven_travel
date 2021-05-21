@@ -1,88 +1,118 @@
+/* 教科書からコピペしたレイアウト 
+
 html {
     font-size: 90%;
     line-height: 1.8;
 }
-body {
-    margin: 0;
-    padding: 0;
-    font-size: 1rem;
-    display: flex;
-    flex-flow: column;
-    min-height: 100vh;
-}
 
-.nav-item {
-    color: white;
-}
-
-a:link {
-    text-decoration: none;
-}
 
 input[type=text],
 input[type=email],
 input[type=password],
+input[type=tel],
+input[type=date],
 textarea {
     width: 360px;
     padding: 8px;
+    margin: 20px;
     border-radius: 4px;
-    border: 1px solid #cacaca;
+    border: 1.5px solid #009588;
 }
+
+body {
+    font-family: "Arial",  sans-serif;
+}
+
 
 .container {
-    max-width: 960px;
+    max-width: 1000px;
+    max-height: 1000px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 20px;
 }
 
+
+h1 {
+  font-weight:bold;
+  font-size:25px;
+  color: #009588;
+  text-align: center;
+  }
+
+ 
+ 
+
+/* ヘッダーレイアウト */
 header {
-    background: #028568;
+    background: #009588;
+    padding: 15px;
+
 }
 
 header .container {
     display: flex;
     justify-content: space-between;
-    color: #ddd;
-}
-header .brand {
-    display: block;
-    font-size: 1.3rem;
+
 }
 
-footer {
-    background: #028568;
-    margin-top: auto;
+header .brand {
+    display: block;
 }
+
+/* ヘッダーレイアウトここまで */
+
+/* ナビゲーションレイアウト */
+ 
+
+.navigation {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;  
+    }
+
+.navigation li {
+    padding: 0 10px;
+    color: #ddd;
+    }
+
+.navigation a {
+	text-decoration:none;
+}
+
+.navigation a:link {
+	color : #ffffff;
+}
+
+.navigation a:visited{
+	color : #ffffff;
+} 
+
+/* ナビゲーションレイアウトここまで */
+
+/* フッターレイアウト */
+
+footer {
+    background: #009588;
+    list-style: none;
+}
+
+.footer {
+    list-style: none;
+    text-align: right;
+    
+}
+
 
 footer .container {
     display: flex;
     justify-content: space-between;
-    color: #ddd;
+    color: #ffffff;    
 }
 
+/* フッターレイアウトここまで */
 
-.navigation {
-display: flex;
-margin: 0;
-padding: 0;
-list-style: none;
-background: #028568;
-}
-.navigation li {
-padding: 0 10px;
-color: #ddd;
-}
-
-.copy{
-font-size: 10px;
-color: #ddd;
-}
-
-.subtitle{
- font-size: 10px;
- color: #ddd;   
-}
-
+/* テーブルレイアウト */
 table.table {
 border-collapse: collapse;
 }
@@ -97,20 +127,37 @@ table.table td {
 padding: 10px 15px;
 border-bottom: 1px solid #ddd;
 }
+/* テーブルレイアウトここまで */
 
+/* 定義レイアウト */
 dt {
 font-weight: bold;
 margin-bottom: 5px;
-font-size: .9rem;
+color: #009588;
 }
 
 dd {
 margin-bottom: 15px;
 }
+/* 定義レイアウトここまで */
 
+/* ラベルレイアウト */
+
+label {
+
+margin-bottom: 5px;
+color: #009588;
+}
+
+/* ラベルレイアウトここまで */
+
+
+
+/* リストレイアウト */
 ul.pagination {
 padding: 0;
 list-style: none;
+
 }
 
 li.page-item {
@@ -118,42 +165,59 @@ display: inline-block;
 padding: 8px;
 }
 
-section {
-    max-width: 300px;
-    margin: 0 auto;
-  }
-  a.btn_10 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-    box-sizing: border-box;
-    background:#028568;
-    position: relative;
-  }
+/* リストレイアウトここまで */
+
+   /* リンクレイアウト */
+
   
-  a.btn_1 span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-    background: #fff;
-    box-sizing: border-box;
-    color: #333;
-    font-size: 14px;
-    letter-spacing: 0.1em;
-    text-decoration: none;
-    box-shadow: 0px 5px 12px #CAD4E2, -6px -6px 12px #FFF;
-    border-radius: 10px;
-    position: absolute;
-    top: -5px;
-    left: 0;
-    transition-duration: 0.2s;
-  }
-  a.btn_10:hover span {
-    left: 0;
-    top: 0;
-    box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
-  }
+   
+   /* リンクレイアウトここまで */
+
+  /* トップページレイアウト */
+    
+    .title {
+    font-weight:normal;
+    font-size:35px;
+    color: #000;
+    }   
+    
+    .copy{
+    font-size: 15px;
+    color: #928181;
+    }
+    
+    .subtitle{
+     font-size: 20px;
+     font-weight: bold;
+     color: #c1c7c6;
+     text-align: center;
+     margin: 5px;
+    }
+
+    .top{
+    text-align: center;
+    padding: 130px 0;
+    }
+
+    .top_image {
+    width: 280px;
+    margin: 10px;
+    }
+
+    #catch {
+      text-align: center;
+      font-size: 12px;
+    }
+
+/*トップページレイアウトここまで */
+
+  .first-form {
+     background-color: #e8e8e8;
+     text-align:center;
+     width: 400px;
+     height: 280px;
+     margin-left: 260px;
+     margin-top: 30px;
+     padding:30px;
+     border-radius: 10px;
+    }
