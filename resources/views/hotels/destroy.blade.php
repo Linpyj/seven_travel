@@ -51,7 +51,7 @@
            value="{{old('prefecture')}}"></label>
     </p>
     <p>
-           <button type="submit"><a href="{{route('', $hotel)}}"
+           <button type="submit"><a href="{{route('home', $hotel)}}"
            onclick="deleteHotel()">削除する</a></button>
     </p>
 </form>

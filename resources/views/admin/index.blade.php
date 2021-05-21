@@ -12,7 +12,8 @@
 @foreach($hotels as $hotel)
 <!-- 検索結果を連想配列として一つずつ取り出して表示 -->
     <tr>
-        <td><a href="{{ route ('hotels.show', $hotel->id) }}">{{ $plan->hotel->name }}</a></td>
+        <td><a href="{{ route('home') }}">ホテルを追加する</a></td>
+        <td><a href="{{ route('home') }}">会員一覧</a></td>
     </tr>
 @endforeach
 {{ $products->appends(Request::all())->links() }}
