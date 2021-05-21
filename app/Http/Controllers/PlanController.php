@@ -48,7 +48,8 @@ class PlanController extends Controller
      */
     public function create()
     {
-        //
+        $plan = new Plan;
+        return view('plan/create', ['plan' => $plan]);
     }
 
     /**
@@ -59,7 +60,14 @@ class PlanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'price' => 'required|numeric|max:7',
+            'number_of_room' => 'required|numeric|max:4',
+            'remarks' => 'max:100',
+        ]);
+        $request->hotel->plans()->create($request->all());
+        return redirect(route(''));
     }
 
     /**
@@ -70,7 +78,8 @@ class PlanController extends Controller
      */
     public function show(Plan $plan)
     {
-        //
+        $plan = Plan::with('hotel')->get();
+        return view('plans.show', ['plan' => $plan]);
     }
 
     /**
@@ -81,7 +90,7 @@ class PlanController extends Controller
      */
     public function edit(Plan $plan)
     {
-        //
+        return view('plan.edit', ['plan' => $plan]);
     }
 
     /**
@@ -93,7 +102,14 @@ class PlanController extends Controller
      */
     public function update(Request $request, Plan $plan)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'price' => 'required|numeric|max:7',
+            'number_of_room' => 'required|numeric|max:4',
+            'remarks' => 'max:100',
+        ]);
+        $plan->update($request->all());
+        return redirect(route(''));
     }
 
     /**
@@ -104,6 +120,7 @@ class PlanController extends Controller
      */
     public function destroy(Plan $plan)
     {
-        //
+        $plan->delete();
+        return redirect(route(''));
     }
 }

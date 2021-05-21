@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+    <form action="{{ route('home')}}" method="get">
 
-    <form action="{{ route('index')}}" method="post">
+
         @csrf
         @include('plans.search')
+
         <!--サーチファイルの差し込み -->
         <button type="submit">検索</button>
     </form>

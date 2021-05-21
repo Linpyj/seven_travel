@@ -27,7 +27,21 @@ class ReservationController extends Controller
     {
         // 予約画面を表示
         $reservation = new Reservation;
-        return view('/', ['reservation' => $reservation]);
+        return view('/confirm', ['reservation' => $reservation]);
+        // 確認画面へのルーティングを確認
+    }
+
+    public function confirm()
+    {
+        $input_data = 
+        [
+            $name = Input::get('user_name'),
+            $plan = Input::get('plan'),
+            $check_in = Input::get('check_in'),
+            $check_out = Input::get('check_out'),
+        ];
+        return view('confirm', ['input_data' => $input_data]);
+
     }
 
     /**

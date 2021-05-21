@@ -4,9 +4,9 @@
 <h1>マイページ</h1>
     <table>
         <tr>
-            <td><a href="{{ route('') }}">会員情報編集</a></td>
-            <td><a href="{{ route('') }}">過去の予約</a></td>
-            <td><a href="{{ route('') }}">ログアウト</a></td>
+            <td><a href="{{ route('home') }}">会員情報編集</a></td>
+            <td><a href="{{ route('home') }}">過去の予約</a></td>
+            <td><a href="{{ route('home') }}">ログアウト</a></td>
         </tr>
     </table>
 <h2>会員詳細情報</h2>
@@ -30,6 +30,6 @@
     </table>
 <h2>現在の予約一覧</h2>
     
-    <a href="{{ route('') }}">戻る</a>
-    <a href="{{ route('') }}">退会する</a>    
+    <a href="{{ route('home') }}">戻る</a>
+    <a href="{{ route('home') }}">退会する</a>    
 @endsection
