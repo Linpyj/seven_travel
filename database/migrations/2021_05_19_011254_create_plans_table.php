@@ -19,7 +19,7 @@ class CreatePlansTable extends Migration
             $table->bigInteger('hotel_id')->unsigned();
             $table->integer('price');
             $table->integer('number_of_room');
-            $table->string('remarks');
+            $table->string('remarks')->nullable();
 
             $table->foreign('hotel_id')->references('id')->on('hotels')->onDelete('cascade');
         });

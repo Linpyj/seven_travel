@@ -18,11 +18,11 @@ class CreateHotelsTable extends Migration
             $table->string('name');
             $table->string('prefecture');
             $table->string('address');
-            $table->date('check_in');
-            $table->date('check_out');
+            $table->time('check_in');
+            $table->time('check_out');
             $table->string('tel');
-            $table->string('image');
-            $table->string('remarks');
+            $table->string('image')->nullable();
+            $table->string('remarks')->nullable();
         });
     }
 
