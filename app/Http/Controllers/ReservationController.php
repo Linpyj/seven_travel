@@ -52,6 +52,11 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'check_in' => 'required',
+            'check_out' => 'required',
+            'status' => 'required|max:10',
+            ]);
         echo $request;
 
         // 予約を保存
