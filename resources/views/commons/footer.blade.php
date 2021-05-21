@@ -1,6 +1,6 @@
 
     <ul class="footer">
-        <li>SEVEN TRAVEL</li>
+        <p>SEVEN TRAVEL</p>
 
         <li><a href="{{ route('home') }}">ABOUT</a></li>
         

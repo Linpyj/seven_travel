@@ -1,7 +1,5 @@
 
     <ul class="navigation">
-
-        <li><a href="{{ route('home') }}">SEVEN TRAVEL</a></li>
         
         <li><a href="{{ route('home') }}">ホテル検索</a></li>
 
