@@ -5,6 +5,8 @@
 
 <form action="{{route('login')}}" method="post">
     @csrf
+
+    <div class="first-form">
     <p>
     <label>メールアドレス<br>
     <input type="email" name="email"
@@ -15,12 +17,15 @@
     <input type="password" name="password"
            value=""></label>
     </p>
-    <p>
-        <button type="submit">ログイン</button>
-    </p>
-    <p>または</p>
-    <p>
-        <a href="{{ route('register') }}">新規登録</a>
-    </p>
+    <section>
+        <button type="submit" class="btn_2"><span>ログイン</span></button>
+    </section>
+    </div>
+
+    <p id="register-script">会員登録がお済出ない方はこちら</p>
+
+    <section>
+        <a href="{{ route('register') }}" class="btn_1"><span>新規登録</span></a>
+    </section>
 </form>
 @endsection

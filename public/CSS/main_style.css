@@ -6,6 +6,8 @@ html {
 }
 
 
+ここまで */
+
 input[type=text],
 input[type=email],
 input[type=password],
@@ -211,6 +213,8 @@ padding: 8px;
 
 /*トップページレイアウトここまで */
 
+/*ログインページレイアウト */
+
   .first-form {
      background-color: #e8e8e8;
      text-align:center;
@@ -221,3 +225,92 @@ padding: 8px;
      padding:30px;
      border-radius: 10px;
     }
+
+section {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+a.btn_1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  background: #fff;
+  border: #009588;
+  position: relative;
+}
+a.btn_1 span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  box-sizing: border-box;
+  color: #009588;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  box-shadow: 0px 5px 12px #CAD4E2, -6px -6px 12px #FFF;
+  border-radius: 10px;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  transition-duration: 0.2s;
+}
+
+a.btn_1:hover span {
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
+}
+
+button.btn_2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  border: #009588;
+  position: relative;
+}
+
+button.btn_2 span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background: #009588;;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  box-shadow: 0px 5px 12px #CAD4E2, -6px -6px 12px #FFF;
+  border-radius: 10px;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  transition-duration: 0.2s;
+}
+
+button.btn_2:hover span {
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 4px #696b6d, -2px -2px 4px #FFF;
+}
+
+#register-script {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}    
+/*ログインページレイアウトここまで */
