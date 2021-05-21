@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoriesTableSeeder::class);
         $this->call(HotelsTableSeeder::class);
         $this->call(PlansTableSeeder::class);
+        $this->call(ReservationTableSeeder::class);
     }
 }
