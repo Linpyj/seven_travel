@@ -2,21 +2,16 @@
 
 @section('content')
 <h1>会員一覧</h1>
-<form action="{{route('home')}}" method="post">
+<form action="{{route('home')}}" method="get">
 @csrf
-<p>
-<label>絞り込み<br>
-<input type="text" name="text"
-       value="{{old('text')}}"></label>
-</p>
-<p><button type="submit">検索</button></p>
+@include('admin.search')
+<button type="submit">検索</button>
 </form>
 @foreach($users as $user)
+<!-- 検索結果を連想配列として一つずつ取り出して表示 -->
     <tr>
-        <td>{{ users()->id }}</td>
+        <td><a href="{{ route ('admin.users', $user->id) }}">{{ $user->id }}</a></td>
     </tr>
 @endforeach
-
-    {{ $products->appends(Request::all())->links() }}
-
+{{ $products->appends(Request::all())->links() }}
 @endsection
