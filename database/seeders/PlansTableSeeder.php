@@ -13,9 +13,12 @@ class PlansTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('plans')->insert(['name' => 'planA', 'hotel_id' => 1,'price' => '10000', 'number_of_room' => '3']);
-        DB::table('plans')->insert(['name' => 'planB', 'hotel_id' => 1,'price' => '30000', 'number_of_room' => '2']);
-        DB::table('plans')->insert(['name' => 'planA', 'hotel_id' => 2,'price' => '10000', 'number_of_room' => '1']);
-        DB::table('plans')->insert(['name' => 'planB', 'hotel_id' => 3,'price' => '20000', 'number_of_room' => '3']);
+        for($i=1;$i<30;$i++){
+            DB::table('plans')->insert(['name' => 'planA'.$i, 'hotel_id' => $i,'price' => rand(1,4).'0000', 'number_of_room' => rand(1,5)]);
+            DB::table('plans')->insert(['name' => 'planB'.$i, 'hotel_id' => $i,'price' => rand(1,4).'0000', 'number_of_room' => rand(1,5)]);
+            DB::table('plans')->insert(['name' => 'planC'.$i, 'hotel_id' => $i,'price' => rand(1,4).'0000', 'number_of_room' => rand(1,5)]);
+            DB::table('plans')->insert(['name' => 'planD'.$i, 'hotel_id' => $i,'price' => rand(1,4).'0000', 'number_of_room' => rand(1,5)]);
+        }
+        
     }
 }

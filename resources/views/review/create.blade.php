@@ -3,9 +3,8 @@
 @section('content')
 <h1>口コミ投稿</h1>
 
-     <form action="{{  route('home', $review ) }}" method="POST" id="create-form">
-         @csrf
-
+     <form action="{{ route('reviews.store') }}" method="POST" id="create-form">
+        @csrf
         <dl>
         <dt>タイトル</dt>
         <dd>
@@ -16,18 +15,18 @@
         <dd>
             <input type="text" name="content" value="{{ old('content', $review->content) }}">
         </dd>
+        <dd></dd>
         </dl>
-        <button type="submit" onclick="createReview()" >投稿</button>
+        <button type="submit" onclick="createReview()">投稿</button>
 
     </form>
 
         <script type="text/javascript">
-         function createReviw() {
+         function createReview() {
             event.preventDefault();
             if(window.confirm('この内容で間違いないですか？')) {
                 document.getElementById('create-form').submit();
             }
             }
         </script>
-<
 @endsection

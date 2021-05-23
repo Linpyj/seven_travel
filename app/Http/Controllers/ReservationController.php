@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Reservation;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -12,10 +13,13 @@ class ReservationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        //dd(\Auth::id());
         // 予約履歴を参照
-        $reservations =  Reservation::where('user_id', '==', Auth::id)->get();
-        return view('/', ['reservations' => $reservations]);
+        $query =  Reservation::with('plan');
+        $query->where('user_id', \Auth::id());
+        $reservations = $query->get();
+        return view('reservations.index', ['reservations' => $reservations]);
     }
 
     /**

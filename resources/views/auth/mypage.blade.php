@@ -4,9 +4,20 @@
 <h1>マイページ</h1>
     <table>
         <tr>
-            <td><a href="{{ route('home') }}">会員情報編集</a></td>
-            <td><a href="{{ route('home') }}">過去の予約</a></td>
-            <td><a href="{{ route('home') }}">ログアウト</a></td>
+            <td><a href="{{ route('users.edit', \Auth::id()) }}">会員情報編集</a></td>
+            <td><a href="{{ route('reservations.index') }}">過去の予約</a></td>
+            <td><a href="" onclick="logout()">ログアウト</a></td>
+            <form action="{{ route('logout') }}" id="logout-form" method="post">
+                @csrf
+            </form>
+            <script type="text/javascript">
+                function logout() {
+                    event.preventDefault();
+                    if(window.confirm('ログアウトしますか？')){
+                        document.getElementById('logout-form').submit();
+                    }
+                }
+            </script>
         </tr>
     </table>
 <h2>会員詳細情報</h2>
@@ -29,7 +40,22 @@
         </tr>
     </table>
 <h2>現在の予約一覧</h2>
-    
+    @foreach ($reservations as $reservation)
+        <h2>{{ $reservation->plan->hotel->name }}：{{ $reservation->plan->name }}</h2>
+        <p>チェックイン時間{{ $reservation->plan->hotel->check_in }}チェックアウト時間{{ $reservation->plan->hotel->check_out }}</p>
+    @endforeach
     <a href="{{ route('home') }}">戻る</a>
-    <a href="{{ route('home') }}">退会する</a>    
+    <a href="{{ route('users.destroy', \Auth::id()) }}" onclick="deleteUser()">退会する</a>
+            <form action="{{ route('users.destroy', \Auth::id()) }}" method="POST" id="delete-form">
+                @csrf
+                @method('delete')
+            </form>
+            <script type="text/javascript">
+                function deleteUser(){
+                    event.preventDefault();
+                    if(window.confirm('退会すると現在お取りしている予約もキャンセルされます。')){
+                        document.getElementById('delete-form').submit();
+                    }
+                }
+            </script>    
 @endsection
