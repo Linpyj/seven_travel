@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {    
     public function index(User $user){
-        $query =  Reservation::with('plan');
+        $date = date("Y-m-d");
+        $query = Reservation::with('plan');
+        $query->where('check_in', '>=', $date);
         $query->where('user_id', \Auth::id());
         $reservations = $query->get();
         return view('auth.mypage', ['reservations' => $reservations]);
