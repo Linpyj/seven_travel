@@ -1,7 +1,5 @@
 /* フォームレイアウト　*/
 
-ここまで */
-
 input[type=text],
 input[type=email],
 input[type=password],
@@ -223,7 +221,7 @@ padding: 8px;
 section {
   max-width: 300px;
   margin: auto;
-  margin-bottom:20p
+  margin-bottom:20px
 }
 
 a.btn_1 {
@@ -274,6 +272,7 @@ button.btn_2 {
   box-sizing: border-box;
   border: #009588;
   position: relative;
+
 }
 
 button.btn_2 span {
@@ -300,7 +299,7 @@ button.btn_2 span {
 button.btn_2:hover span {
   left: 0;
   top: 0;
-  box-shadow: 0 0 4px #696b6d, -2px -2px 4px #FFF;
+  box-shadow: 0 0 4px #696b6d, -2px -2px 4px #FFF; 
 }
 
 #register-script {
@@ -309,7 +308,6 @@ button.btn_2:hover span {
   margin-bottom: 20px;
   font-size: 13px;
 }    
-
 /*ログインページレイアウトここまで */
 
 /*会員登録ページレイアウト */
