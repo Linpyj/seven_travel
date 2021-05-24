@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ route('plans.show')}}" method="get">
+    <form action="{{ route('plans.index')}}" method="get">
 
 
         @csrf
@@ -15,14 +15,14 @@
             <!-- 検索結果を連想配列として一つずつ取り出して表示 -->
                 <tr>
                     <td>{{ $plan->hotel->image }}</td>
-                    <td><a href="{{ route ('hotels.show', $hotel->id) }}">{{ $plan->hotel->name }}</a></td>
+                    <td><a href="{{ route ('hotels.show', $plan->hotel->id) }}">{{ $plan->hotel->name }}</a></td>
                     <td><a href="{{ route ('plans.show', $plan->id) }}">{{ $plan->name }}</a></td>
                     <td>{{ $plan->price }}</td>
-                    <td>{{ $product->price }}</td>
+                    <td>{{ $plan->price }}</td>
                 </tr>
             @endforeach
 
     
-     {{ $products->appends(Request::all())->links() }}
+     {{ $plans->appends(Request::all())->links() }}
      <!-- ページネーションを自動的に付与 -->
  @endsection

@@ -41,7 +41,7 @@ class PlanController extends Controller
             $query->where('prefecture', '==', $request->prefecture);
         }
         $plans = $query->paginate(10);
-        return view('plans/index');
+        return view('plans/index',['plans' => $plans]);
     }
 
     /**
