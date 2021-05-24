@@ -61,7 +61,7 @@
             <script type="text/javascript">
                 function deleteUser(){
                     event.preventDefault();
-                    if(window.confirm('退会すると現在お取りしている予約もキャンセルされます。')){
+                    if(window.confirm('退会すると現在お取りしている予約もキャンセルされます。よろしいですか？')){
                         document.getElementById('delete-form').submit();
                     }
                 }
