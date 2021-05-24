@@ -16,7 +16,7 @@ class ReservationController extends Controller
     {   
         //dd(\Auth::id());
         // 予約履歴を参照
-        $query =  Reservation::with('plan');
+        $query =  Reservation::with('plan.hotel');
         $query->where('user_id', \Auth::id());
         $reservations = $query->get();
         return view('reservations.index', ['reservations' => $reservations]);
@@ -83,6 +83,6 @@ class ReservationController extends Controller
     {
         //　予約を削除（キャンセル）
         $reservation->delete();
-        return redirect(route('/'));
+        return redirect(route('users.index'));
     }
 }

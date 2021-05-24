@@ -2,6 +2,7 @@
 <ul class="navigation">        
     <li ><a href="{{ route('plans.index') }}" class="navigation">ホテル検索</a></li>
 
+
     <li><a href="{{ route('users.index') }}" class="navigation">マイぺージ</a></li>
 
     @if(Auth::user()->is_admin)

@@ -24,14 +24,11 @@ Auth::routes([
 //ログイン状態でアクセス認証
 Route::group(['middleware' => ['auth']], function (){
     //ログイン時、ホーム画面
-    Route::get('home', 'HotelController@index')->name('home');
-    Route::get('admin', 'HotelController@index')->name('home');
-
     Route::resource('hotels', 'HotelController');
     Route::resource('plans', 'PlanController');
     Route::resource('reviews', 'ReviewController');
     Route::resource('reservations', 'ReservationController');
     
-    Route::resource('users', 'userController');
+    Route::resource('users', 'UserController');
     
 });
