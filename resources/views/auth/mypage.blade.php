@@ -34,6 +34,7 @@
             }
         </script>
     @endforeach
+
     
     <br>
     <section>
@@ -79,6 +80,10 @@
                     }
                 }
             </script>    
+
+<a href="{{ route('home') }}">戻る</a>
+
+
     
 
 @endsection
