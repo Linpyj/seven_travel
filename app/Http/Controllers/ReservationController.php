@@ -83,6 +83,6 @@ class ReservationController extends Controller
     {
         //　予約を削除（キャンセル）
         $reservation->delete();
-        return redirect(route('/'));
+        return redirect(route('users.index'));
     }
 }
