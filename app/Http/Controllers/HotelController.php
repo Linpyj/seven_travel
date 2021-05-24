@@ -79,7 +79,7 @@ class HotelController extends Controller
      */
     public function edit(Hotel $hotel)
     {
-        return view('hotel.edit', ['hotel' => $hotel]);
+        return view('hotels.edit', ['hotel' => $hotel]);
     }
 
     /**
