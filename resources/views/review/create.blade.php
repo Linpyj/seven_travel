@@ -15,7 +15,9 @@
         <dd>
             <input type="text" name="content" value="{{ old('content', $review->content) }}">
         </dd>
-        <dd></dd>
+        <dd>
+            <input type="hidden" name="hotel_id" value="{{ old('hotel_id', $hotel_id) }}">
+        </dd>
         </dl>
         <button type="submit" onclick="createReview()">投稿</button>
 
