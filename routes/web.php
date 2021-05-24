@@ -28,7 +28,6 @@ Route::group(['middleware' => ['auth']], function (){
     Route::resource('plans', 'PlanController');
     Route::resource('reviews', 'ReviewController');
     Route::resource('reservations', 'ReservationController');
-    
     Route::resource('users', 'UserController');
-    
+    Route::get('home', 'HotelController@index')->name('home');
 });
