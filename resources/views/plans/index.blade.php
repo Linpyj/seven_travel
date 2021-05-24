@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ route('plans.show')}}" method="get">
+    <form action="{{ route('plans.index')}}" method="get">
 
 
         @csrf
@@ -18,7 +18,6 @@
                     <td><a href="{{ route ('hotels.show', $hotel->id) }}">{{ $plan->hotel->name }}</a></td>
                     <td><a href="{{ route ('plans.show', $plan->id) }}">{{ $plan->name }}</a></td>
                     <td>{{ $plan->price }}</td>
-                    <td>{{ $product->price }}</td>
                 </tr>
             @endforeach
 

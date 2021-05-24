@@ -21,15 +21,40 @@ class PlanController extends Controller
             $reservation = Plan::withCount(['reservations' => function (Builder $query) use ($request){
                 $query->where('check_in','<=', $request->check_out)->where('check_out', '>=', $request->check_in);
             }])->get();
-            echo "reservations";
-            echo $reservation;
+
+            dd($reservation);
+
+            // $filtered = $reservation->first(function ($item) {
+            //     return $item['reservations_count'] < $item['number_of_room'];
+            // });
+
+            $filtered = $reservation->map(function($item, $key) {
+                if ($item['reservations_count'] < $item['number_of_room']) {
+                    return $item;
+                }
+            });
+
+            // $filtered = $reservation->where('reservations_count', '<', 'number_of_room');
+
+            dd($filtered->all());
+            // $selected = $reservation::where('reservations_count', '>', 'number_of_room')->get();
+            // dd($selected);
+
+            foreach($reservation as $item) {
+                if ($item->reservations_count < $item->number_of_room) {
+                    array_push($item_arr, $item);
+                }
+            }
+            // ここまでで、当該期間中に空きがあるプランを配列で取得済み
+
+            // dd($item_arr);
             // foreach($plans as $plan) {
             //     echo $plan;
             // }
             // $query = Plan::with('hotel')->where('id', '==', $reservation->id)->where('number_of_room', '>', $reservation->reservations_count);
-            $query = Reservation::where('number_of_rooms', '>', $reservation->reservations_count);
-            $plans = $query->get();
-            dd($plans);
+            // $query = Reservation::where('number_of_rooms', '>', $reservation->reservations_count);
+            // $plans = $query->get();
+            // dd($plans);
         } else {
             $query = Plan::with('hotel');
         }
