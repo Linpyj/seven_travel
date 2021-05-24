@@ -14,5 +14,8 @@
     {{-- <a href="{{ route('reviews.create', $reservation) }}">口コミを投稿する</a> --}}
     <a href="{{ route('plans.show', $reservation) }}">再予約する</a>
 @endforeach
-<a href="{{ route('users.index') }}">戻る</a>
+
+<section>
+    <a href="{{ route('users.index') }}" class="btn_1"><span>戻る</span></a>
+</section>
 @endsection
