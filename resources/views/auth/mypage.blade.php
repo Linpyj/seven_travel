@@ -10,13 +10,12 @@
         <tr><th>電話番号</th><td>{{ Auth::user()->tel }}</td></tr>
         <tr><th>メールアドレス</th><td>{{ Auth::user()->email }}</td>
         <tr><th>生年月日</th><td>{{ Auth::user()->birthday }}</td></tr>
-        <tr><th>パスワード</th><td>{{ Auth::user()->password }}</td></tr>
     </table>
     <br>
     <section>
         <a href="{{ route('users.edit', \Auth::id()) }}" class="btn_3"><span>会員情報を編集する</span></a>
     </section>
-
+    
 <h2>現在の予約一覧</h2>
     @foreach ($reservations as $reservation)
         <h2>{{ $reservation->plan->hotel->name }}：{{ $reservation->plan->name }}</h2>
@@ -68,8 +67,7 @@
     <section>
         <a href="{{ route('users.destroy', \Auth::id()) }}" onclick="deleteUser()" class="btn_4"><span>退会する</span></a>
     </section>
-    
-    
+
             <form action="{{ route('users.destroy', \Auth::id()) }}" method="POST" id="delete-form">
                 @csrf
                 @method('delete')
@@ -82,7 +80,9 @@
                     }
                 }
             </script>    
+
 <a href="{{ route('home') }}">戻る</a>
+
 
     
 
