@@ -15,7 +15,7 @@ class ReservationController extends Controller
     public function index()
     {
         // 予約履歴を参照
-        $date = $date = date("Y-m-d");
+        $date = date("Y-m-d");
         $query =  Reservation::with('plan.hotel');
         $query->where('user_id', \Auth::id());
         $query->where('check_out','<', $date);
