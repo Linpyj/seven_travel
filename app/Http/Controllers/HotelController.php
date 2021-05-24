@@ -15,7 +15,7 @@ class HotelController extends Controller
     public function index(Request $request)
     {
         $hotels = Hotel::with('category')->paginate(5);
-        return view('home.index', ['hotels' => $hotels]);
+        return view('hotels.index', ['hotels' => $hotels]);
     }
     /**
      * Show the form for creating a new resource.

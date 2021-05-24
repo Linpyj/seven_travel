@@ -12,7 +12,7 @@ class Review extends Model
         'hotel_id', 'title', 'content', 
     ];
 
-    public function reviews(){
-        return $this->belongsTo(Review::class);
+    public function hotel(){
+        return $this->belongsTo(Hotel::class);
     }
 }

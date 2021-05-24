@@ -12,18 +12,18 @@ class ReservationTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {   
         DB::table('reservations')->insert([
             'user_id' => rand(1,3),
-            'plan_id' => 1,
-            'check_in' => '2021-05-21',
-            'check_out' => '2021-05-23',
+            'plan_id' => rand(1,4),
+            'check_in' => '2021-05-25',
+            'check_out' => '2021-05-28',
             'status' => 1,
             'number_of_rooms' => 3
             ]);
         DB::table('reservations')->insert([
             'user_id' => rand(1,3),
-            'plan_id' => 2,
+            'plan_id' => rand(1,4),
             'check_in' => '2021-05-24',
             'check_out' => '2021-05-25',
             'status' => 1,

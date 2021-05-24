@@ -3,8 +3,9 @@
 @section('content')
 <h1>会員情報編集</h1>
 
-<form action="{{route('update')}}" method="post">
+<form action="{{route('users.update', $user->id)}}" method="post">
     @csrf
+    @method('put')
     <p>
     <label>名前<br>
     <input type="text" name="name"

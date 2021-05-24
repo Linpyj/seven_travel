@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\HotelController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,8 +28,7 @@ Route::group(['middleware' => ['auth']], function (){
     Route::resource('plans', 'PlanController');
     Route::resource('reviews', 'ReviewController');
     Route::resource('reservations', 'ReservationController');
-    Route::resource('users', 'UsersController');
-
-
+    
+    Route::resource('users', 'userController');
     
 });

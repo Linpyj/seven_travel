@@ -13,29 +13,31 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => '山田',
-            'address' => '東京都',
-            'tel' => '08011111111',
-            'email' => 'yamada@example.com',
-            'birthday' => '1998-04-01',
-            'password' => 'yamadayamada'
+        for($i=1;$i<10;$i++){
+            DB::table('users')->insert([
+                'name' => '山田'.$i,
+                'address' => '東京都',
+                'tel' => '08011111111'.$i,
+                'email' => 'yamada'.$i.'@example.com',
+                'birthday' => '1998-04-01',
+                'password' => 'yamadayamada'.$i
+                ]);
+            DB::table('users')->insert([
+                'name' => '鈴木'.$i,
+                'address' => '大阪府',
+                'tel' => '08011112222'.$i,
+                'email' => 'suzuki'.$i.'@example.com',
+                'birthday' => '1997-04-01',
+                'password' => 'suzukisuzuki'.$i
+                ]);
+            DB::table('users')->insert([
+                'name' => '佐藤'.$i,
+                'address' => '北海道',
+                'tel' => '08011113333'.$i,
+                'email' => 'sato'.$i.'@example.com',
+                'birthday' => '1996-04-01',
+                'password' => 'satosato'.$i
             ]);
-        DB::table('users')->insert([
-            'name' => '鈴木',
-            'address' => '大阪府',
-            'tel' => '08011112222',
-            'email' => 'suzuki@example.com',
-            'birthday' => '1997-04-01',
-            'password' => 'suzukisuzuki'
-            ]);
-        DB::table('users')->insert([
-            'name' => '佐藤',
-            'address' => '北海道',
-            'tel' => '08011113333',
-            'email' => 'sato@example.com',
-            'birthday' => '1996-04-01',
-            'password' => 'satosato'
-            ]);
+        }
     }
 }
