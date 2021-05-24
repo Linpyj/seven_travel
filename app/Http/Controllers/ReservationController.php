@@ -13,11 +13,12 @@ class ReservationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-        //dd(\Auth::id());
+    {
         // 予約履歴を参照
+        $date = $date = date("Y-m-d");
         $query =  Reservation::with('plan.hotel');
         $query->where('user_id', \Auth::id());
+        $query->where('check_out','<', $date);
         $reservations = $query->get();
         return view('reservations.index', ['reservations' => $reservations]);
     }
