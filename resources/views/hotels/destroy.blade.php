@@ -47,8 +47,12 @@
     </p>
     <p>
     <label>県<br>
-    <input type="text" name="prefecture"
-           value="{{old('prefecture')}}"></label>
+    <select type="text" class="form-control" name="prefecture">                          
+    @foreach((array)config('pref') as $key => $score)
+        <option value="{{ $score }}">{{ $score }}</option>
+    @endforeach
+    </select>
+    </label>
     </p>
     <p>
            <button type="submit"><a href="{{route('home', $hotel)}}"

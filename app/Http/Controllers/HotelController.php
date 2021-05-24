@@ -25,7 +25,7 @@ class HotelController extends Controller
     public function create()
     {
         $hotel = new Hotel;
-        return view('hotel/create', ['hotel' => $hotel]);
+        return view('hotels/create', ['hotel' => $hotel]);
     }
 
     /**
@@ -45,8 +45,20 @@ class HotelController extends Controller
             'remarks' => 'max:100',
             'prefecture' => 'required',
         ]);
-        $request->category()->create($request->all());
-        return redirect(route(''));
+        $hotel = new Hotel;
+        $hotel->name = $request->name;
+        $hotel->address = $request->address;
+        $hotel->category_id = $request->category_id;
+        $hotel->tel = $request->tel;
+        $hotel->check_in = $request->check_in;
+        $hotel->check_out = $request->check_out;
+        $hotel->remarks = $request->remarks;
+        $hotel->prefecture = $request->prefecture;
+        $filename = $request->file('image')->store('public');
+        $hotel->image = str_replace('public/','',$filename);
+        $hotel->timestamps = false;
+        $hotel->save();
+        return redirect(route('hotels.index'));
     }
 
     /**
@@ -69,7 +81,7 @@ class HotelController extends Controller
      */
     public function edit(Hotel $hotel)
     {
-        return view('hotel.edit', ['hotel' => $hotel]);
+        return view('hotels.edit', ['hotel' => $hotel]);
     }
 
     /**

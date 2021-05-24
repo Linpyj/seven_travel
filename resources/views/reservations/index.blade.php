@@ -5,7 +5,7 @@
 <h1>過去の予約</h1>
 @foreach ($reservations as $reservation)
     <h2>{{ $reservation->plan->hotel->name }}：{{ $reservation->plan->name }}</h2>
-    <p>チェックイン時間{{ $reservation->plan->hotel->check_in }}チェックアウト時間{{ $reservation->plan->hotel->check_out }}</p>
+    <p>チェックイン日{{ $reservation->check_in }}チェックアウト日{{ $reservation->check_out }}</p>
     <form action="{{ route('reviews.create') }}" method="get">
         @csrf
         <input type="hidden" name="hotel_id" value="{{ $reservation->plan->hotel_id }}">
