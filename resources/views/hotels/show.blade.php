@@ -50,11 +50,30 @@
 <p>
     @if(Auth::user()->is_admin)
     
-        <p><button type=“button”><a href="{{ route('home') }}">プランの追加</button></p>
+        <section>
+            <a href="{{ route('home') }}" class="btn_3"><span>プランの追加</span></a>
+        </section>
+        <section>
+            <a href="{{ route('home') }}" class="btn_1"><span>ホテル情報編集</span></a>
+        </section>
 
-        <p><button type=“button”><a href="{{ route('home') }}">ホテル情報編集</button></p>
+        <section>
+            <a href="{{ route('hotels.destroy', \Auth::id()) }}" onclick="deleteHotel()" class="btn_4"><span>ホテルの削除</span></a>
+        </section>
 
-        <p><button type=“button”><a href="{{ route('home') }}">ホテルの削除</button></p>
+            <form action="{{ route('hotels.destroy', \Auth::id()) }}" method="POST" id="delete-form">
+                @csrf
+                @method('delete')
+            </form>
+            
+            <script type="text/javascript">
+                function deleteHotel(){
+                    event.preventDefault();
+                    if(window.confirm('本当に削除しますか？')){
+                        document.getElementById('delete-form').submit();
+                    }
+                }
+            </script>    
     @endif
 </p>
 
