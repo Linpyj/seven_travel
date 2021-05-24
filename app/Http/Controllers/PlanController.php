@@ -16,32 +16,87 @@ class PlanController extends Controller
      */
     
     public function index(Request $request)
-    { 
+    {
+        $prefectures = ['北海道',	'青森',	'岩手',	'宮城',	'秋田',	'山形',	'福島',	'茨城',	'栃木',	'群馬',	'埼玉',	'千葉',	'東京',	'神奈川',	'新潟',	'富山',	'石川',	'福井',	'山梨',	'長野',	'岐阜',	'静岡',	'愛知',	'三重',	'滋賀',	'京都',	'大阪',	'兵庫',	'奈良',	'和歌山',	'鳥取',	'島根',	'岡山',	'広島',	'山口',	'徳島',	'香川',	'愛媛',	'高知',	'福岡',	'佐賀',	'長崎',	'熊本',	'大分',	'宮崎',	'鹿児島',	'沖縄'];
         if ($request->check_in && $request->check_out) {
+            // echo $request;
+            // echo $request->prefecture;
             $reservation = Plan::withCount(['reservations' => function (Builder $query) use ($request){
                 $query->where('check_in','<=', $request->check_out)->where('check_out', '>=', $request->check_in);
-            }])->get();
-            echo "reservations";
-            echo $reservation;
-            // foreach($plans as $plan) {
-            //     echo $plan;
-            // }
-            // $query = Plan::with('hotel')->where('id', '==', $reservation->id)->where('number_of_room', '>', $reservation->reservations_count);
-            $query = Reservation::where('number_of_rooms', '>', $reservation->reservations_count);
-            $plans = $query->get();
-            dd($plans);
+            }])->with('hotel')->get();
+
+
+            // 日付で絞り込み
+            $filtered = $reservation->map(function($item, $key) {
+                if ($item['reservations_count'] < $item['number_of_room']) {
+                    return $item;
+                }
+            });
+
+            // 所在地で絞り込み
+            if ($request->prefecture) {
+                $filtered = $filtered->map(function($item, $key) use($request) {
+                    if ($item['hotel']['prefecture'] == $request['prefecture']) {
+                        return $item;
+                    }
+                });
+            }
+
+            // 値段で絞り込み
+            if ($request->price_min && $request->price_max) {
+                // $filtered = $filtered->where('price', '>=', $request->price_min)->where('price', '<=', $request->price_max);
+
+                $filtered = $filtered->map(function($item, $key) use($request) {
+                    if ($item['price'] >= $request['price_min'] && $item['price'] <= $request['price_max']) {
+                        return $item;
+                    }
+                });
+            }            
+
+            $filtered = $filtered->map(function($item, $key) use($request) {
+                if (isset($item)) {
+                    return $item;
+                }
+            });
+
+            // dd($filtered);
+
+            $plans = $filtered->whereNotNull('name');
+
+            // dd($plans);
+
+
         } else {
-            $query = Plan::with('hotel');
+            $filtered = Plan::with('hotel')->get();
+
+            // if ($request->price_min && $request->price_max) {
+            //     $filtered = $filtered->where('price', '>=', $request->price_min)->where('price', '<=', $request->price_max);
+            // }
+
+            if ($request->prefecture) {
+                $filtered = $filtered->map(function($item, $key) use($request) {
+                    if ($item['hotel']['prefecture'] == $request['prefecture']) {
+                        return $item;
+                    }
+                });
+            }
+
+            if ($request->price_min && $request->price_max) {
+                // $filtered = $filtered->where('price', '>=', $request->price_min)->where('price', '<=', $request->price_max);
+
+                $filtered = $filtered->map(function($item, $key) use($request) {
+                    if ($item['price'] >= $request['price_min'] && $item['price'] <= $request['price_max']) {
+                        return $item;
+                    }
+                });            
+            }
+
+            $plans = $filtered->whereNotNull('name');
+        
+            // dd($filtered);
+
         }
-        if ($request->price) {
-            $max = $request->price + 10000;
-            $query->where('price', '>=', $request->price)->where('price', '<=', $max);
-        }
-        if ($request->prefecture) {
-            $query->where('prefecture', '==', $request->prefecture);
-        }
-        $plans = $query->paginate(10);
-        return view('plans/index',['plans' => $plans]);
+        return view('plans/index',['plans' => $plans, 'prefectures' => $prefectures]);
     }
 
     /**
