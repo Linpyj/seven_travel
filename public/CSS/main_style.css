@@ -17,6 +17,8 @@ textarea {
 
 body {
     font-family: "Arial",  sans-serif;
+    padding:0; /*　追加*/
+    margin:0; /*　追加*/
 }
 
 
@@ -48,11 +50,11 @@ h2 {
 /* ヘッダーレイアウト */
 header {
     background: #009588;
-    padding: 15px;
-
+    margin: 0 auto;
+    padding: 30px;
 }
 
-header .container {
+header .header {
     display: flex;
     justify-content: space-between;
 
@@ -60,7 +62,12 @@ header .container {
 
 header .brand {
     display: block;
+    text-decoration:none;
+    font-size:22px;
+    font-weight:bold;
 }
+
+
 /* ヘッダーレイアウトここまで */
 
 /* ナビゲーションレイアウト */
@@ -95,8 +102,9 @@ header .brand {
 footer {
     background: #009588;
     list-style: none;
-    width: 1300px;
-    height:120px;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
 }
 
 .footer {
@@ -105,7 +113,7 @@ footer {
    
 }
 
-footer .container {
+footer .footer {
     display: flex;
     justify-content: space-between;
     color: #ffffff;    
@@ -208,7 +216,8 @@ padding: 8px;
 
     .top_image {
     width: 280px;
-    margin: 10px;
+    margin: 1px;
+    margin-left: 40px;
     }
 
     #catch {
@@ -438,8 +447,474 @@ a.btn_4:hover span {
   box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
 }
 
-#caution {
+/*マイページレイアウトここまで */
+
+.script {
+  text-align: center;
+  color: #232020
+}/* フォームレイアウト　*/
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=tel],
+input[type=date],
+textarea {
+    width: 360px;
+    padding: 8px;
+    margin: 20px;
+    border-radius: 4px;
+    border: 1.5px solid #009588;
+}
+/* フォームレイアウトここまで　*/
+
+
+body {
+    font-family: "Arial",  sans-serif;
+    padding:0; /*　追加*/
+    margin:0; /*　追加*/
+}
+
+
+.container {
+    max-width: 1000px;
+    max-height: 10000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+h1 {
+  font-weight:bold;
+  font-size:25px;
+  color: #009588;
+  text-align: center;
+  }
+
+
+h2 {
+  font-weight:bold;
+  font-size:18px;
+  color: #009588;
+  text-align: center;
+  }
+ 
+ 
+
+/* ヘッダーレイアウト */
+header {
+    background: #009588;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+header .header {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+header .brand {
+    display: block;
+    text-decoration:none;
+    font-size:22px;
+    font-weight:bold;
+}
+
+
+/* ヘッダーレイアウトここまで */
+
+/* ナビゲーションレイアウト */
+.navigation {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;  
+    }
+
+.navigation li {
+    padding: 0 10px;
+    color: #ddd;
+    }
+
+.navigation a {
+	text-decoration:none;
+}
+
+.navigation a:link {
+	color : #ffffff;
+}
+
+.navigation a:visited{
+	color : #ffffff;
+} 
+
+/* ナビゲーションレイアウトここまで */
+
+/* フッターレイアウト */
+
+footer {
+    background: #009588;
+    list-style: none;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+}
+
+.footer {
+    list-style: none;
+    text-align: right;
+   
+}
+
+footer .footer {
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff;    
+}
+
+/* フッターレイアウトここまで */
+
+/* テーブルレイアウト */
+table {
+     border-collapse: collapse;
+     width: 800px;
+     height:280px;
+     margin-left: 110px;
+     border: 1.5px solid  #009588;
+}
+
+table th{
+  padding: 10px 15px;
+  border-bottom: 1px solid #ddd;  
+  color:  #009588;
+}
+
+table td {
+padding: 10px 15px;
+border-bottom: 1px solid #ddd;
+}
+
+/* テーブルレイアウトここまで */
+
+/* 定義レイアウト */
+dt {
+font-weight: bold;
+margin-bottom: 5px;
+color: #009588;
+}
+
+dd {
+margin-bottom: 15px;
+}
+/* 定義レイアウトここまで */
+
+/* ラベルレイアウト */
+
+label {
+
+margin-bottom: 5px;
+color: #009588;
+font-weight: bold;
+}
+
+/* ラベルレイアウトここまで */
+
+
+
+/* リストレイアウト */
+ul.pagination {
+padding: 0;
+list-style: none;
+
+}
+
+li.page-item {
+display: inline-block;
+padding: 8px;
+}
+
+/* リストレイアウトここまで */
+
+   /* リンクレイアウト */
+
+  
+   
+   /* リンクレイアウトここまで */
+
+  /* トップページレイアウト */
+    
+    .title {
+    font-weight:normal;
+    font-size:35px;
+    color: #000;
+    }   
+    
+    .copy{
+    font-size: 15px;
+    color: #928181;
+    }
+    
+    .subtitle{
+     font-size: 20px;
+     font-weight: bold;
+     color: #c1c7c6;
+     text-align: center;
+     margin: 5px;
+    }
+
+    .top{
+    text-align: center;
+    padding: 130px 0;
+    }
+
+    .top_image {
+    width: 280px;
+    margin: 1px;
+    margin-left: 40px;
+    }
+
+    #catch {
+      text-align: center;
+      font-size: 12px;
+    }
+
+/*トップページレイアウトここまで */
+
+/*ログインページレイアウト */
+
+  .first-form {
+     background-color: #e8e8e8;
+     text-align:center;
+     width: 400px;
+     height: 280px;
+     margin-left: 260px;
+     margin-top: 30px;
+     padding:30px;
+     border-radius: 10px;
+    }
+
+section {
+  max-width: 300px;
+  margin: auto;
+  margin-bottom:20px
+}
+
+a.btn_1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  background: #fff;
+  border: #009588;
+  position: relative;
+}
+
+a.btn_1 span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  box-sizing: border-box;
+  color: #009588;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  box-shadow: 0px 5px 12px #CAD4E2, -6px -6px 12px #FFF;
+  border-radius: 10px;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  transition-duration: 0.2s;
+}
+
+a.btn_1:hover span {
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
+}
+
+button.btn_2 {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  border: #009588;
+  position: relative;
+
+}
+
+button.btn_2 span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background: #009588;
+  box-sizing: border-box;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  box-shadow: 0px 5px 12px #CAD4E2, -6px -6px 12px #FFF;
+  border-radius: 10px;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  transition-duration: 0.2s;
+}
+
+button.btn_2:hover span {
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 4px #696b6d, -2px -2px 4px #FFF; 
+}
+
+#register-script {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}    
+/*ログインページレイアウトここまで */
+
+/*会員登録ページレイアウト */
+
+.second-form {
+     width: 400px;
+     height:780px;
+     margin-left: 260px;
+     margin-top: 30px;
+     padding:30px;
+     border-radius: 10px;
+     border: 1.5px solid  #009588 ;
+     background-color: #ffffff;
+    }
+
+.button-container{
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  height: 100px;
+  align-items: space-between;
+}
+
+.button-container button{
+ margin-bottom: 100px; 
+ width: 200px;
+ margin: 0 auto;
+}
+
+.button-container div a{
+ width: 200px;
+ margin: 0 auto;
+}
+
+#login-script {
+  text-align: center;
+  font-size: 13px;
+}   
+/*会員登録ページレイアウトここまで */
+
+/*マイページレイアウト */
+a.btn_3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  border: #009588;
+  position: relative;
+}
+
+a.btn_3 span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background:  #009588;
+  box-sizing: border-box;
+  color:  #fff;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  box-shadow: 0px 5px 12px #CAD4E2, -6px -6px 12px #FFF;
+  border-radius: 10px;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  transition-duration: 0.2s;
+}
+
+a.btn_3:hover span {
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
+}
+
+a.btn_4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  border: #009588;
+  position: relative;
+}
+
+a.btn_4 span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  background:  #ef5e72;
+  box-sizing: border-box;
+  color:  #fff;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  box-shadow: 0px 5px 12px #CAD4E2, -6px -6px 12px #FFF;
+  border-radius: 10px;
+  position: absolute;
+  top: -5px;
+  left: 0;
+  transition-duration: 0.2s;
+}
+
+a.btn_4:hover span {
+  left: 0;
+  top: 0;
+  box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
+}
+
+.script {
   text-align: center;
   color: #232020
 }
+
 /*マイページレイアウトここまで */
+.hotel-form {
+     width: 400px;
+     height:900px;
+     margin-left: 260px;
+     margin-top: 30px;
+     padding:30px;
+     border-radius: 10px;
+     border: 1.5px solid  #009588 ;
+     background-color: #ffffff;
+    }
+/*ホテル追加画面レイアウト */
