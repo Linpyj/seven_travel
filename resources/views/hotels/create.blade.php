@@ -2,8 +2,8 @@
 
 @section('content')
 <h1>ホテル追加</h1>
-
-<form action="{{route('home')}}" method="post" id="create-form">
+@include('commons/flash')
+<form action="{{ route('hotels.store') }}" method="post" id="create-form">
     @csrf
     <p>
     <label>名前<br>
@@ -32,12 +32,12 @@
     </p>
     <p>
     <label>チェックイン<br>
-    <input type="date" name="check_in"
+    <input type="time" name="check_in"
            value="{{old('check_in')}}"></label>
     </p>
     <p>
     <label>チェックアウト<br>
-    <input type="date" name="check_out"
+    <input type="time" name="check_out"
            value="{{old('check_out')}}"></label>
     </p>
     <p>
@@ -51,8 +51,7 @@
            value="{{old('prefecture')}}"></label>
     </p>
     <p>
-           <button type="submit"><a href="{{route('home', $hotel)}}"
-           onclick="createHotel()">追加する</a></button>
+           <button type="submit"><a href="" onclick="createHotel()">追加する</a></button>
     </p>
 </form>
 <script type="text/javascript">
