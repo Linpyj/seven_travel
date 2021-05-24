@@ -12,7 +12,7 @@
     </form>
 
             
-           
+        @if (count($plans) != 0)
         <table>
             <thead>
                 <tr>
@@ -23,16 +23,20 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach ($plans as $plan)
-                <tr>
-                    <td>{{ $plan['hotel']['prefecture'] }}</td>
-                    <td><a href="{{ route('hotels.show', ['hotel' => $plan['hotel']['id']]) }}">{{ $plan['hotel']['name'] }}</a></td>
-                    <td><a href="{{ route('plans.show', $plan['id']) }}">{{ $plan['name'] }}</a></td>
-                    <td>{{ $plan['price'] }}</td>
-                </tr>
-            @endforeach
+            
+                @foreach ($plans as $plan)
+                    <tr>
+                        <td>{{ $plan['hotel']['prefecture'] }}</td>
+                        <td><a href="{{ route('hotels.show', ['hotel' => $plan['hotel']['id']]) }}">{{ $plan['hotel']['name'] }}</a></td>
+                        <td><a href="{{ route('plans.show', $plan['id']) }}">{{ $plan['name'] }}</a></td>
+                        <td>{{ $plan['price'] }}</td>
+                    </tr>
+                @endforeach            
             </tbody>
             </table>
+        @else
+            <p>申し訳ございません。検索条件に該当するプランはありません。</p>
+        @endif
     
      
      <!-- ページネーションを自動的に付与 -->
