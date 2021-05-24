@@ -3,7 +3,7 @@
 @section('content')
 <h1>ホテル追加</h1>
 @include('commons/flash')
-<form action="{{ route('hotels.store') }}" method="post" id="create-form">
+<form action="{{ route('hotels.store') }}" method="post" id="create-form" enctype="multipart/form-data">
     @csrf
     <p>
     <label>名前<br>
@@ -27,7 +27,7 @@
     </p>
     <p>
     <label>画像<br>
-    <input type="text" name="image"
+    <input type="file" name="image"
            value="{{old('image')}}"></label>
     </p>
     <p>
