@@ -16,57 +16,46 @@ class PlanController extends Controller
      */
     
     public function index(Request $request)
-    { 
+    {
+        $prefectures = ['北海道',	'青森県',	'岩手県',	'宮城県',	'秋田県',	'山形県',	'福島県',	'茨城県',	'栃木県',	'群馬県',	'埼玉県',	'千葉県',	'東京都',	'神奈川県',	'新潟県',	'富山県',	'石川県',	'福井県',	'山梨県',	'長野県',	'岐阜県',	'静岡県',	'愛知県',	'三重県',	'滋賀県',	'京都府',	'大阪府',	'兵庫県',	'奈良県',	'和歌山県',	'鳥取県',	'島根県',	'岡山県',	'広島県',	'山口県',	'徳島県',	'香川県',	'愛媛県',	'高知県',	'福岡県',	'佐賀県',	'長崎県',	'熊本県',	'大分県',	'宮崎県',	'鹿児島県',	'沖縄県'];
         if ($request->check_in && $request->check_out) {
             $reservation = Plan::withCount(['reservations' => function (Builder $query) use ($request){
                 $query->where('check_in','<=', $request->check_out)->where('check_out', '>=', $request->check_in);
-            }])->get();
-
-            dd($reservation);
-
-            // $filtered = $reservation->first(function ($item) {
-            //     return $item['reservations_count'] < $item['number_of_room'];
-            // });
+            }])->with('hotel')->get();
 
             $filtered = $reservation->map(function($item, $key) {
-                if ($item['reservations_count'] < $item['number_of_room']) {
+                if ($item['reservations_count'] >= $item['number_of_room']) {
                     return $item;
                 }
             });
 
-            // $filtered = $reservation->where('reservations_count', '<', 'number_of_room');
-
-            dd($filtered->all());
-            // $selected = $reservation::where('reservations_count', '>', 'number_of_room')->get();
-            // dd($selected);
-
-            foreach($reservation as $item) {
-                if ($item->reservations_count < $item->number_of_room) {
-                    array_push($item_arr, $item);
-                }
-            }
-            // ここまでで、当該期間中に空きがあるプランを配列で取得済み
-
-            // dd($item_arr);
-            // foreach($plans as $plan) {
-            //     echo $plan;
+            // foreach($filtered as $item) {
+            //     echo $item;
             // }
-            // $query = Plan::with('hotel')->where('id', '==', $reservation->id)->where('number_of_room', '>', $reservation->reservations_count);
-            // $query = Reservation::where('number_of_rooms', '>', $reservation->reservations_count);
-            // $plans = $query->get();
-            // dd($plans);
+
+            if ($request->price_min && $request->price_max) {
+                echo $request->price_min;
+                echo $request->price_max;
+                $filtered = $filtered->where('price', '>=', $request->price_min)->where('price', '<=', $request->price_max);
+            }
+
+            if ($request->prefecture) {
+                $filtered = $filtered->where('hotel->prefecture', '==', $request->prefecture);
+            }
+            $plans = $filtered->all();
         } else {
             $query = Plan::with('hotel');
+            if ($request->price) {
+                $max = $request->price + 10000;
+                $query = $query->where('price', '>=', $request->price)->where('price', '<=', $max);
+            }
+            if ($request->prefecture) {
+                $query = $query->where('prefecture', '==', $request->prefecture);
+            }
+            $plans = $query->get();
         }
-        if ($request->price) {
-            $max = $request->price + 10000;
-            $query->where('price', '>=', $request->price)->where('price', '<=', $max);
-        }
-        if ($request->prefecture) {
-            $query->where('prefecture', '==', $request->prefecture);
-        }
-        $plans = $query->paginate(10);
-        return view('plans/index',['plans' => $plans]);
+        
+        return view('plans/index',['plans' => $plans, 'prefectures' => $prefectures]);
     }
 
     /**
