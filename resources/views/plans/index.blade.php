@@ -27,8 +27,16 @@
                 @foreach ($plans as $plan)
                     <tr>
                         <td>{{ $plan['hotel']['prefecture'] }}</td>
-                        <td><a href="{{ route('hotels.show', ['hotel' => $plan['hotel']['id']]) }}">{{ $plan['hotel']['name'] }}</a></td>
-                        <td><a href="{{ route('plans.show', $plan['id']) }}">{{ $plan['name'] }}</a></td>
+                        <td><a href="{{ route('hotels.show', ['hotel' => $plan['hotel']['id']]) }}"
+                               style="text-decoration: none;"
+                            >
+                            {{ $plan['hotel']['name'] }}
+                            </a></td>
+                        <td><a href="{{ route('plans.show', $plan['id']) }}"
+                               style="text-decoration: none;"
+                            >
+                            {{ $plan['name'] }}
+                            </a></td>
                         <td>{{ $plan['price'] }}</td>
                     </tr>
                 @endforeach            
