@@ -11,14 +11,28 @@
         <button type="submit">検索</button>
     </form>
 
-            @foreach($plans as $plan)
-            <!-- 検索結果を連想配列として一つずつ取り出して表示 -->
+            
+           
+        <table>
+            <thead>
                 <tr>
-                    <td>{{ $plan }}</td>
-                    
+                    <th>所在地</th>
+                    <th>ホテル名</th>
+                    <th>プラン名</th>
+                    <th>値段</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach ($plans as $plan)
+                <tr>
+                    <td>{{ $plan['hotel']['prefecture'] }}</td>
+                    <td>{{ $plan['hotel']['name'] }}</td>
+                    <td>{{ $plan['name'] }}</td>
+                    <td>{{ $plan['price'] }}</td>
                 </tr>
             @endforeach
-
+            </tbody>
+            </table>
     
      
      <!-- ページネーションを自動的に付与 -->

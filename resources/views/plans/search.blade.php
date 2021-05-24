@@ -1,17 +1,13 @@
 <dl>
 <dt>所在地</dt>
 <dd>
-    <select name="location_id">
-     
-
-        <option value=""></option>
-        
-
-
-        @foreach ($prefectures as $prefecture)
-          {{$prefecture}}
-        @endforeach
-    </select>
+        <select name="prefecture">
+            <?php
+            foreach ( $prefectures as $prefecture ) {
+                echo '<option value="', $prefecture, '">', $prefecture, '</option>';
+            }
+            ?>
+        </select>
 </dd>
      
 <dt>金額</dt>
