@@ -48,7 +48,7 @@
      </section>
 
 <h2>退会メニュー</h2>
-    <p id="caution">退会すると現在の予約はすべてキャンセルされます。</p>
+    <p class="script">退会すると現在の予約はすべてキャンセルされます。</p>
     <br>
     <section>
         <a href="{{ route('users.destroy', \Auth::id()) }}" onclick="deleteUser()" class="btn_4"><span>退会する</span></a>
