@@ -3,8 +3,10 @@
 @section('content')
 
 <h1>投稿完了</h1>
-<p>投稿が完了しました！</p>
+<br>
+<p class="script">口コミの投稿が完了しました！</p>
 
-<p><button type=“button”><a href="{{ route('home') }}">ホームに戻る</button></p>
-    
+<section>
+    <a href="{{ route('home') }}" class="btn_1"><span>ホームに戻る</span></button>
+</section>
 @endsection

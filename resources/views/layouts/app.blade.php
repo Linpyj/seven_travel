@@ -10,8 +10,8 @@
 <body>
     
     <header>
-        <div class="container">
-            <a class="nav-item brand" href="/">{{ config('app.name') }}</a> 
+        <div class="header">
+            <a class="nav-item brand" href="/">SEVEN TRAVEL</a> 
             @include('commons/nav')
             <!-- config関数（configディレクト内のappファイルの中で設定項目名としてnameを反映）-->
             <!-- 'name' => env('APP_NAME', 'Laravel'), envファイルで定義したアプリケーション名-->
@@ -25,7 +25,7 @@
     </main>
 
     <footer>
-        <div class="container">
+        <div class="footer">
             @include('commons/footer')
         </div>
     </footer>
