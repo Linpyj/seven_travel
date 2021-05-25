@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Hotel;
+use App\Models\Plan;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class HotelController extends Controller
@@ -11,6 +13,7 @@ class HotelController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * 
      */
     public function index(Request $request)
     {
@@ -75,9 +78,10 @@ class HotelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Hotel $hotel)
-    {
-        $hotel = Hotel::with(['category', 'plans'])->get();
-        return view('hotels.show', ['hotel' => $hotel]);
+    {   $reviews = Review::where('hotel_id', $hotel->id)->get();
+        $plans = Plan::where('hotel_id', $hotel->id)->get();
+        $hotel = Hotel::with(['category', 'plans', 'reviews'])->where('id', $hotel->id)->first();
+        return view('hotels.show', ['hotel' => $hotel, 'plans' => $plans, 'reviews' => $reviews]);
     }
 
     /**
