@@ -9,13 +9,13 @@
             <dl>
                 <dt>タイトル</dt>
                 <dd>
-                    <input type="text" name="title" value="{{ old('title') }}">
+                    <input type="text" name="title" placeholder="必須" value="{{ old('title') }}">
                 </dd>
                 
                 <dl>
                 <dt>口コミ内容</dt>
                 <dd>
-                    <input type="text" name="content" value="{{ old('content') }}">
+                    <input type="text" name="content" placeholder="300文字以内" value="{{ old('content') }}">
                 </dd>
                 <dd>
                 <input type="hidden" name="hotel_id" value="{{ old('hotel_id') }}">
