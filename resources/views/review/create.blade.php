@@ -28,7 +28,9 @@
             <button type="submit" onclick="createReview()" class="btn_2"><span>投稿</span></button>
         </section>
     </form>
-    <a href="{{ route('reservations.index') }}">戻る</a>
+    <section>
+        <a href="{{ route('reservations.index') }}" class="btn_1"><span>前の画面に戻る</span></a>
+    </section>
 
     <script type="text/javascript">
         function createReview() {

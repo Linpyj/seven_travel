@@ -16,29 +16,33 @@
     
         <dt>ホテル</dt>
         <dd><a href="{{ route('hotels.show', $plan->hotel->id) }}">{{ $plan->hotel->name }}</a></dd>
-
-        <dt>見どころ</dt>
-        <dd>{{ $plan->remarks }}</dd>
-
+        
         <dt>価格</dt>
         <dd>{{ $plan->price }}</dd>
 
         <dt>部屋数</dt>
         <dd>{{ $plan->number_of_room }}</dd>
+
+        <dt>見どころ</dt>
+        <dd>{{ $plan->remarks }}</dd>
     </dl>
 </div>
 
 <form action="{{ route('reservations.create') }}" method="get">
     @csrf
     <input type="hidden" name="plan_id" value="{{ $plan->id }}">
-    <button type="submit">予約フォームへ</button>
+
+<br>
+    <section>
+        <button type="submit" class="btn_2"><span>予約フォームへ</span></button>
+    </section>
 </form>
 
 
 <p>
     @if(Auth::user()->is_admin)
     
-       
+      <h2>管理者メニュー</h2> 
         <section>
             <a href="{{ route('plans.edit', $plan->id) }}" class="btn_1"><span>プランの編集</span></a>
         </section>
