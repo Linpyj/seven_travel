@@ -30,4 +30,5 @@ Route::group(['middleware' => ['auth']], function (){
     Route::resource('reservations', 'ReservationController');
     Route::resource('users', 'UserController');
     Route::get('home', 'HotelController@index')->name('home');
+    Route::get('reservations/confirm', 'ReservationController@confirm')->name('confirm');
 });

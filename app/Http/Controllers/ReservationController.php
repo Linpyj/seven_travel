@@ -30,10 +30,8 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        // 予約画面を表示
         $reservation = new Reservation;
-        return view('/confirm', ['reservation' => $reservation]);
-        // 確認画面へのルーティングを確認
+        return view('reservations.create', ['reservation' => $reservation]);
     }
 
     public function confirm()

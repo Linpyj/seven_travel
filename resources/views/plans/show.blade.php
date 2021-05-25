@@ -3,9 +3,11 @@
 @section('content')
 
 <h1>プラン詳細</h1>
-
-<p><img src="{{ $plan->hotel->image }}" alt="{{ $plan->hotel->id }}"></p>
-
+@if ($plan->hotel->image == '')
+    <p><img src="{{ asset('/storage/'.'defaultImage.png') }}" alt="default"></p>
+@else
+    <p><img src="{{ asset('/storage/'.$plan->hotel->image) }}" alt="{{ $plan->hotel->id }}"></p>
+@endif
 <dl>
     <dt>プラン名</dt>
     <dd>{{ $plan->name }}</dd>
@@ -24,9 +26,7 @@
 
 </dl>
 
-<p>このプランで予約しますか？</p>
-
-<p><button type=“button”><a href="{{ route('home') }}"> 予約フォームへ</button></p>
+<p><button type=“button”><a href="{{ route('reservations.create') }}"> 予約フォームへ</button></p>
 
 <p>
     @if(Auth::user()->is_admin)
