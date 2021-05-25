@@ -27,8 +27,10 @@
             <textarea name="remark" row="5" placeholder="100文字以内で入力してください。">{{ old('remark', $plan->remark)}}</textarea>
         </dd>
         </dl>
-    
-        <button type="submit" onclick="createPlan()" >追加</button>
+
+        <section>
+            <button type="submit" onclick="createPlan()" class="btn_2"><span>追加</span></button>
+        </section>
 
     </form>
 
@@ -40,5 +42,4 @@
             }
             }
         </script>
-<
 @endsection
