@@ -17,19 +17,19 @@ class UserController extends Controller
 }
     
     
-    public function show($id) {
-        echo $id;
+    public function show(User $user) {
         $date = date("Y-m-d");
         $query = Reservation::with('plan');
         $query->where('check_in', '>=', $date);
         $query->where('user_id', \Auth::id());
         $reservations = $query->get();
 
-        if ($id == \Auth::id()) {
+        if ($user->id == \Auth::id()) {
             return view('auth.mypage', ['reservations' => $reservations]);
         } else {
-            $user = User::where('id', $id);
-            return view('users.show', ['user' => $user, 'id' => $id]);
+            $user = User::where('id', $user->id)->get();
+            
+            return view('users.show', ['user' => $user]);
         }
         
     }

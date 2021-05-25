@@ -29,7 +29,7 @@
                     
                         @foreach ($users as $user)
                             <tr>
-                                <td><a href="{{ route('users.show', $user->id) }}"
+                                <td><a href="{{ route('users.show', ['user' => $user->id]) }}"
                                        style="text-decoration: none;"
                                 >{{ $user->id }}</a></td>
                                 <td>{{ $user->name }}</td>
