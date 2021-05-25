@@ -16,9 +16,11 @@ class HotelController extends Controller
     {
         // 名前だけ
         // $hotels = Hotel::with('category')->paginate(5);
-        $keyword = $request->input('keyword');
-        if (!!$keyword) {
-            $hotels = Hotel::where('name', 'like', '%'.$keyword.'%');
+        $hotel_name = $request->input('name');
+        if (!!$hotel_name) {
+            echo 'Yay';
+            $hotels = Hotel::where('name', 'like', '%' . $hotel_name . '%')->get();
+            // echo $hotels;
         } else {
             $hotels = Hotel::all();
         }
