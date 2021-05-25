@@ -6,7 +6,9 @@
         @include('plans.search')
 
         <!--サーチファイルの差し込み -->
-        <button type="submit">検索</button>
+        <section>
+            <button type="submit" class="btn_2"><span>検索</span></button>
+        </section>
     </form>
 
     @if (count($plans) == 0)
