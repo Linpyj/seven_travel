@@ -154,6 +154,7 @@ color: #009588;
 
 dd {
 margin-bottom: 15px;
+margin-left:1px;
 }
 /* 定義レイアウトここまで */
 
@@ -469,7 +470,7 @@ a.btn_4:hover span {
 /*セレクトレイアウト*/
 .cp_select {
 	overflow: hidden;
-	width: 70%;
+	width: 40%;
 	margin: 1.3em ;
 }
 
@@ -535,3 +536,16 @@ a.btn_4:hover span {
     }
 /* 口コミ投稿画面レイアウトここまで*/
 
+/*予約画面レイアウト*/
+.fifth-form {
+  width: 50%;
+  height:100%;
+  margin-left: 210px;
+  margin-top: 30px;
+  padding:30px;
+  text-align:center;
+  border-radius: 10px;
+  border: 1.5px solid  #009588 ;
+  background-color: #ffffff;
+ }
+/*予約画面レイアウトここまで*/

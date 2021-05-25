@@ -3,6 +3,7 @@
 @section('content')
 <h1>ホテル編集</h1>
 
+<div class="old-form">
 <form action="{{route('home')}}" method="post">
     @csrf
     <p>
@@ -15,6 +16,20 @@
     <input type="text" name="category_id" placeholder="必須"
            value="{{old('category_id')}}"></label>
     </p>
+
+    <p>
+    <label>県<br>
+
+       <div class="cp_select cp_sl04 ">
+              <select type="text" class="form-control" name="prefecture">                          
+              @foreach((array)config('pref') as $key => $score)
+                      <option value="{{ $score }}">{{ $score }}</option>
+              @endforeach
+              </select>
+        </div>
+    </label>
+    </p>
+
     <p>
     <label>住所<br>
     <input type="text" name="address" placeholder="例：東京都豊島区池袋1-1-1"
@@ -45,17 +60,12 @@
     <input type="text" name="remarks" placeholder="任意"
            value="{{old('remarks')}}"></label>
     </p>
-    <p>
-    <label>県<br>
-    <select type="text" class="form-control" name="prefecture">                          
-    @foreach((array)config('pref') as $key => $score)
-        <option value="{{ $score }}">{{ $score }}</option>
-    @endforeach
-    </select>
-    </label>
-    </p>
-    <p>
-           <button type="submit"><a href="{{ route('hotels.show', $hotel->id) }}">変更する</a></button>
-    </p>
+    
+
+    <br>
+    <section>
+           <a href="{{ route('hotels.show', $hotel->id) }}" class="btn_3"><span>変更する</span></a>
+    </section>
 </form>
+</div>
 @endsection

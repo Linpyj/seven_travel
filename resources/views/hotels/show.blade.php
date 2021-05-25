@@ -53,7 +53,7 @@
 
 <p>
     @if(Auth::user()->is_admin)
-    
+    <h2>管理者メニュー</h2>
         <section>
             <a href="{{ route('plans.create', $hotel->id) }}" class="btn_3"><span>プランの追加</span></a>
         </section>
