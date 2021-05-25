@@ -40,12 +40,26 @@
     
        
         <section>
-            <a href="{{ route('home') }}" class="btn_1"><span>プランの編集</span></a>
+            <a href="{{ route('plans.edit', $plan->id) }}" class="btn_1"><span>プランの編集</span></a>
         </section>
 
         <section>
-            <a href="{{ route('home') }}" class="btn_4"><span>プランの削除</span></a>
+            <a href="{{ route('plans.destroy', $plan->id) }}" onclick="deletePlan()" class="btn_4"><span>プランの削除</span></a>
         </section>
+
+        <form action="{{ route('plans.destroy', $plan->id) }}" method="POST" id="delete-form">
+                @csrf
+                @method('delete')
+            </form>
+            
+            <script type="text/javascript">
+                function deletePlan(){
+                    event.preventDefault();
+                    if(window.confirm('本当に削除しますか？')){
+                        document.getElementById('delete-form').submit();
+                    }
+                }
+            </script>
     @endif
 </p>
 
