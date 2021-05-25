@@ -30,7 +30,7 @@
 
     </dl>
     
-    <button type="submit">変更</button>
+    <button type="submit"><a href="{{ route('plans.show', $plan->id) }}">変更</a></button>
 
 </form>
 
