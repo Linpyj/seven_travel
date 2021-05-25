@@ -136,7 +136,7 @@ class PlanController extends Controller
      */
     public function show(Plan $plan)
     {
-        $plan = Plan::with('hotel')->get();
+        $plan = Plan::with('hotel')->first();
         return view('plans.show', ['plan' => $plan]);
     }
 
