@@ -3,8 +3,11 @@
 @section('content')
 
 <h1>ホテル情報</h1>
-
-<p><img src="{{ $hotel->image }}" alt="{{ $hotel->id }}"></p>
+@if ($hotel->image == '')
+    <p><img src="{{ asset('/storage/'.'defaultImage.png') }}" alt="default"></p>
+@else
+    <p><img src="{{ asset('/storage/'.$hotel->image) }}" alt="{{ $hotel->id }}"></p>
+@endif
 
 <dl>
     <dt>ホテル名</dt>
@@ -16,10 +19,11 @@
     <dt>見どころ</dt>
     <dd>{{ $hotel->remarks }}</dd>
 
-    <th>プラン</th>
-    @foreach($hotels as $hotel)
+    <th>プラン</th><br>
+    @foreach($plans as $plan)
         <tr>   
-            <td><a href="{{ route('plans.show', $hotel->plan->id) }}">{{ $hotel->plan->name }}</a></td>
+            <td><a href="{{ route('plans.show', $plan->id) }}">{{ $plan->name }}</a></td>
+            <td>価格：{{ $plan->price }} 円</td><br><hr>
         </tr>
     @endforeach
 
@@ -35,13 +39,13 @@
     <dt>チェックアウト時間</dt>
     <dd>{{ $hotel->check_out }}</dd>
     
-    <th>口コミ</th>
+    <th>口コミ</th><br>
 
-    @foreach($hotels as $hotel)       
+    @foreach($reviews as $review)       
                 <tr>
-                    <td>{{ $hotel->review->title }}</td>
-                    <td>{{ $hotel->review->created_at }}</td>
-                    <td>{!! nl2br(e($hotel->review->content)) !!}</td>
+                    <td>{{ $review->title }}</td>
+                    <td>{!! nl2br(e($review->content)) !!}</td>
+                    <td>{{ $review->created_at }}</td><br><hr>
                 </tr>
     @endforeach
 
