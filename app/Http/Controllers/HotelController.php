@@ -14,7 +14,14 @@ class HotelController extends Controller
      */
     public function index(Request $request)
     {
-        $hotels = Hotel::with('category')->paginate(5);
+        // 名前だけ
+        // $hotels = Hotel::with('category')->paginate(5);
+        $keyword = $request->input('keyword');
+        if (!!$keyword) {
+            $hotels = Hotel::where('name', 'like', '%'.$keyword.'%');
+        } else {
+            $hotels = Hotel::all();
+        }
         return view('hotels.index', ['hotels' => $hotels]);
     }
     /**
