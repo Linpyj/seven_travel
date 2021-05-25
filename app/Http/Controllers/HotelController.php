@@ -117,7 +117,7 @@ class HotelController extends Controller
             'prefecture' => 'required',
         ]);
         $hotel->update($request->all());
-        return redirect(route(''));
+        return view('hotels.update', ['hotel' => $hotel]);
     }
 
     /**
@@ -129,6 +129,6 @@ class HotelController extends Controller
     public function destroy(Hotel $hotel)
     {
         $hotel->delete();
-        return redirect(route(''));
+        return redirect(route('hotels.index'));
     }
 }

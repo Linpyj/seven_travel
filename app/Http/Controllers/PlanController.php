@@ -112,7 +112,7 @@ class PlanController extends Controller
     public function create()
     {
         $plan = new Plan;
-        return view('plan/create', ['plan' => $plan]);
+        return view('plans/create', ['plan' => $plan]);
     }
 
     /**
