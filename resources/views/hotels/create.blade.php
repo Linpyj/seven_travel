@@ -104,7 +104,7 @@
        <br>
        <section>
 
-           <button type="submit"><a href="" onclick="createHotel()">追加する</a></button>
+           <button type="submit" onclick="createHotel()"  class="btn_2"><span>追加する</span></button>
        </section>
 </form>
 
