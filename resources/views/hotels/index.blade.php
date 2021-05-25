@@ -12,7 +12,7 @@
     @foreach($hotels as $hotel)
     
     @endforeach
-    
+
 @elseif(Auth::user())
     <div class="top">
         <h1 class="title">SEVEN TRAVEL</h1>
