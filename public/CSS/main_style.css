@@ -530,3 +530,17 @@ a.btn_4:hover span {
   background-color: #ffffff;
  }
 /*過去の予約画面レイアウトここまで*/
+
+/* 口コミ投稿画面レイアウト*/
+.review-form {
+     background-color: #e8e8e8;
+     text-align:center;
+     width: 500px;
+     height: 280px;
+     margin-left: 210px;
+     margin-top: 30px;
+     padding:30px;
+     border-radius: 10px;
+    }
+/* 口コミ投稿画面レイアウトここまで*/
+
