@@ -1,6 +1,7 @@
 <dl>
 <dt>所在地</dt>
 <dd>
+    <div class="cp_select cp_sl04">
         <select name="prefecture">
             <?php
             foreach ( $prefectures as $prefecture ) {
@@ -8,6 +9,7 @@
             }
             ?>
         </select>
+    </div>    
 </dd>
      
 <dt>金額</dt>
