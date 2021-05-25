@@ -516,45 +516,17 @@ a.btn_4:hover span {
 	padding: 8px 38px 8px 8px;
 	color: #009588;
 }
-
-.cp_select {
-	overflow: hidden;
-	width: 70%;
-	margin: 1.3em ;
-}
-
-.cp_select select {
-	width: 100%;
-	padding-right: 1em;
-	cursor: pointer;
-	text-indent: 0.01px;
-	text-overflow: ellipsis;
-	border: none;
-	outline: none;
-	-webkit-appearance: none;
-}
-
-#prefecture select::-ms-expand {
-    display: none;
-}
-#prefecture.cp_sl04 {
-	position: relative;
-	border-radius: 2px;
-	border: 1.5px solid #009588;
-    border-radius: 10px;
-	background: #ffffff;
-}
-#prefecture.cp_sl04::before {
-	position: absolute;
-	top: 0.8em;
-	right: 0.8em;
-	content: '';
-	border-left: 6px solid transparent;
-	border-right: 6px solid transparent;
-	border-top: 6px solid #009588;
-}
-#prefecture.cp_sl04 select {
-	padding: 8px 38px 8px 8px;
-	color: #009588;
-}
 /*セレクトレイアウト*/
+
+/*過去の予約画面レイアウト*/
+.old-form {
+  width: 100%;
+  height:100%;
+  margin-left: -40px;
+  margin-top: 30px;
+  padding:30px;
+  border-radius: 10px;
+  border: 1.5px solid  #009588 ;
+  background-color: #ffffff;
+ }
+/*過去の予約画面レイアウトここまで*/
