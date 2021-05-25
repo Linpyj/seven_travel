@@ -2,8 +2,6 @@
 
 @section('content')
     <form action="{{ route('plans.index')}}" method="get">
-
-
         @csrf
         @include('plans.search')
 
@@ -11,8 +9,13 @@
         <button type="submit">検索</button>
     </form>
 
-            
-        @if (count($plans) != 0)
+    @if (count($plans) == 0)
+        @if (count($error) == 0)
+            <p>申し訳ございません。検索条件に該当するプランはありません。</p>
+        @else
+            <p>日時指定は必須です。</p>
+        @endif
+    @else
         <table>
             <thead>
                 <tr>
@@ -41,11 +44,6 @@
                     </tr>
                 @endforeach            
             </tbody>
-            </table>
-        @else
-            <p>申し訳ございません。検索条件に該当するプランはありません。</p>
-        @endif
-    
-     
-     <!-- ページネーションを自動的に付与 -->
+        </table>
+    @endif
  @endsection
