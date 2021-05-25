@@ -81,7 +81,10 @@
                 }
             </script>    
 
-<a href="{{ route('home') }}">戻る</a>
+<br>
+<section>
+    <a href="{{ route('home') }}" class="btn_1"><span>ホームに戻る</span></a>
+</section>
 
 
     
