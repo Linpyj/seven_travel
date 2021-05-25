@@ -55,17 +55,17 @@
     @if(Auth::user()->is_admin)
     
         <section>
-            <a href="{{ route('home') }}" class="btn_3"><span>プランの追加</span></a>
+            <a href="{{ route('plans.create', $hotel->id) }}" class="btn_3"><span>プランの追加</span></a>
         </section>
         <section>
-            <a href="{{ route('home') }}" class="btn_1"><span>ホテル情報編集</span></a>
+            <a href="{{ route('hotels.edit', $hotel->id) }}" class="btn_1"><span>ホテル情報編集</span></a>
         </section>
 
         <section>
-            <a href="{{ route('hotels.destroy', \Auth::id()) }}" onclick="deleteHotel()" class="btn_4"><span>ホテルの削除</span></a>
+            <a href="{{ route('hotels.destroy', $hotel->id) }}" onclick="deleteHotel()" class="btn_4"><span>ホテルの削除</span></a>
         </section>
 
-            <form action="{{ route('hotels.destroy', \Auth::id()) }}" method="POST" id="delete-form">
+            <form action="{{ route('hotels.destroy', $hotel->id) }}" method="POST" id="delete-form">
                 @csrf
                 @method('delete')
             </form>
