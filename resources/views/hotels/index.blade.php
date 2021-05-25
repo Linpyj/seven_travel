@@ -33,10 +33,9 @@
                         @foreach ($hotels as $hotel)
                             <tr>
                                 <td><a href="{{ route('hotels.show', $hotel->id) }}"
-                                       style="text-decoration: none;"
-                                >
+                                       style="text-decoration: none;">
                                     {{ $hotel->id }}</a></td>
-                                <td>{{ $hotel->name }}</td>
+                                <td><a href="{{ route('hotels.show', $hotel->id) }}">{{ $hotel->name }}</a></td>
                                 <td>{{ $hotel->prefecture }}</td>
                                 <td>{{ $hotel->address }}</td>
                                 <td>{{ $hotel->tel }}</td>

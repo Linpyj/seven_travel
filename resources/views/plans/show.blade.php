@@ -27,12 +27,13 @@
         <dd>{{ $plan->number_of_room }}</dd>
     </dl>
 </div>
-
-<form action="{{ route('reservations.create') }}" method="get">
-    @csrf
-    <input type="hidden" name="plan_id" value="{{ $plan->id }}">
-    <button type="submit">予約フォームへ</button>
-</form>
+{{-- @if(!(Auth::user()->is_admin)) --}}
+    <form action="{{ route('reservations.create') }}" method="get">
+        @csrf
+        <input type="hidden" name="plan_id" value="{{ $plan->id }}">
+        <button type="submit">予約フォームへ</button>
+    </form>
+{{-- @endif --}}
 
 
 <p>

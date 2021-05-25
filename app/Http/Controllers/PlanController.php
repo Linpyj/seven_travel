@@ -32,38 +32,43 @@ class PlanController extends Controller
                     return $item;
                 }
             });
-
-            // 所在地で絞り込み
-            if ($request->prefecture) {
-                $filtered = $filtered->map(function($item, $key) use($request) {
-                    if ($item['hotel']['prefecture'] == $request['prefecture']) {
-                        return $item;
+            $plans1 = $filtered->whereNotNull('name');
+            //県で絞り込み
+            if($request->prefecture){
+                $plans = array();
+                foreach($plans1 as $plan){
+                    if($plan['hotel']['prefecture'] == $request->prefecture){
+                        array_push($plans, $plan);
                     }
-                });
-            }
-
-            // 値段で絞り込み
-            if ($request->price_min && $request->price_max) {
-                // $filtered = $filtered->where('price', '>=', $request->price_min)->where('price', '<=', $request->price_max);
-
-                $filtered = $filtered->map(function($item, $key) use($request) {
-                    if ($item['price'] >= $request['price_min'] && $item['price'] <= $request['price_max']) {
-                        return $item;
-                    }
-                });
-            }            
-
-            $filtered = $filtered->map(function($item, $key) use($request) {
-                if (isset($item)) {
-                    return $item;
                 }
-            });
-
-            // dd($filtered);
-
-            $plans = $filtered->whereNotNull('name');
+                $plans1 = array();
+                $plans1 = $plans;
+            }
+            //最低金額で絞り込み
+            if($request->price_min){
+                $plans = array();
+                foreach($plans1 as $plan){
+                    if($plan['price'] >= $request->price_min){
+                        array_push($plans, $plan);
+                    }
+                }
+                $plans1 = array();
+                $plans1 = $plans;
+            }
+            //最高金額で絞り込み
+            if($request->price_max){
+                $plans = array();
+                foreach($plans1 as $plan){
+                    if($plan['price'] <= $request->price_max){
+                        array_push($plans, $plan);
+                    }
+                }
+                $plans1 = array();
+                $plans1 = $plans;
+            }
+            
             $error = [];
-            // dd($plans);
+            $plans = $plans1;
             return view('plans/index',['plans' => $plans, 'prefectures' => $prefectures, 'error' => $error]);
 
         } else {
