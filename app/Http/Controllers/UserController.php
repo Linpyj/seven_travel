@@ -7,15 +7,8 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {   public function index(User $user){
-        // idだけ
-        $keyword = $request->input('keyword');
-        if (!!$keyword) {
-            $users = User::where('id', 'like', '%'.$keyword.'%');
-        } else {
-            $hotels = User::all();
-        }
-        return view('hotels.index', ['users' => $users]);
-    }
+    echo "aaa";
+}
     
     
     public function show(User $user){
