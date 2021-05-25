@@ -191,17 +191,7 @@ padding: 8px;
    /* リンクレイアウトここまで */
 
   /* トップページレイアウト */
-    
-    .title {
-    font-weight:normal;
-    font-size:35px;
-    color: #000;
-    }   
-    
-    .copy{
-    font-size: 15px;
-    color: #928181;
-    }
+
     
     .subtitle{
      font-size: 20px;
@@ -211,17 +201,18 @@ padding: 8px;
      margin: 5px;
     }
 
-    .top{
-    text-align: center;
-    padding: 130px 0;
-    }
-
     .top_image {
     width: 280px;
     margin: 1px;
     margin-left: 40px;
     }
 
+    .site_image {
+    	width:100%;
+     margin-bottom: 90px;
+      }
+
+      
     #catch {
       text-align: center;
       font-size: 12px;
@@ -536,7 +527,7 @@ a.btn_4:hover span {
      background-color: #e8e8e8;
      text-align:center;
      width: 500px;
-     height: 280px;
+     height: 100%;
      margin-left: 210px;
      margin-top: 30px;
      padding:30px;

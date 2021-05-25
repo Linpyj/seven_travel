@@ -9,22 +9,22 @@
     @csrf
     <p>
     <label>名前<br>
-    <input type="text" name="name"
+    <input type="text" name="name" placeholder="必須"
            value="{{old('name')}}"></label>
     </p>
     <p>
     <label>住所<br>
-    <input type="text" name="address"
+    <input type="text" name="address" placeholder="例：東京都豊島区池袋1-1-1"
            value="{{old('address')}}"></label>
     </p>
     <p>
     <label>電話番号<br>
-    <input type="tel" name="tel"
+    <input type="tel" name="tel" placeholder="例：08012345678"
            value="{{old('tel')}}"></label>
     </p>
     <p>
     <label>メールアドレス<br>
-    <input type="email" name="email"
+    <input type="email" name="email" placeholder="必須"
            value="{{old('email')}}"></label>
     </p>
     <p>
@@ -34,12 +34,12 @@
     </p>
     <p>
     <label>パスワード<br>
-    <input type="password" name="password"
+    <input type="password" name="password" placeholder="8文字以上"
            value=""></label>
     </p>
     <p>
     <label>パスワード確認<br>
-    <input type="password" name="password_confirmation"
+    <input type="password" name="password_confirmation" placeholder="上記のパスワードを入力"
            value=""></label>
     </p>
     

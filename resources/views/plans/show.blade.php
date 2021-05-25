@@ -16,37 +16,60 @@
     
         <dt>ホテル</dt>
         <dd><a href="{{ route('hotels.show', $plan->hotel->id) }}">{{ $plan->hotel->name }}</a></dd>
-
-        <dt>見どころ</dt>
-        <dd>{{ $plan->remarks }}</dd>
-
+        
         <dt>価格</dt>
         <dd>{{ $plan->price }}</dd>
 
         <dt>部屋数</dt>
         <dd>{{ $plan->number_of_room }}</dd>
+
+        <dt>見どころ</dt>
+        <dd>{{ $plan->remarks }}</dd>
     </dl>
 </div>
-{{-- @if(!(Auth::user()->is_admin)) --}}
+
+@if(!(Auth::user()->is_admin))
     <form action="{{ route('reservations.create') }}" method="get">
         @csrf
         <input type="hidden" name="plan_id" value="{{ $plan->id }}">
-        <button type="submit">予約フォームへ</button>
+        <br>
+        <section>
+            <button type="submit" class="btn_2"><span>予約フォームへ</span></button>
+        </section>
     </form>
-{{-- @endif --}}
+@endif
+
+
+
+    
+
 
 
 <p>
     @if(Auth::user()->is_admin)
     
-       
+      <h2>管理者メニュー</h2> 
         <section>
-            <a href="{{ route('home') }}" class="btn_1"><span>プランの編集</span></a>
+            <a href="{{ route('plans.edit', $plan->id) }}" class="btn_1"><span>プランの編集</span></a>
         </section>
 
         <section>
-            <a href="{{ route('home') }}" class="btn_4"><span>プランの削除</span></a>
+            <a href="{{ route('plans.destroy', $plan->id) }}" onclick="deletePlan()" class="btn_4"><span>プランの削除</span></a>
         </section>
+
+        <form action="{{ route('plans.destroy', $plan->id) }}" method="POST" id="delete-form">
+                @csrf
+                @method('delete')
+            </form>
+            
+            <script type="text/javascript">
+                function deletePlan(){
+                    event.preventDefault();
+                    if(window.confirm('本当に削除しますか？')){
+                        document.getElementById('delete-form').submit();
+                    }
+                }
+            </script>
     @endif
 </p>
 

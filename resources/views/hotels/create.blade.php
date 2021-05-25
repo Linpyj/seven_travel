@@ -9,19 +9,19 @@
         <div class="hotel-form">
         <p>
             <label>名前<br>
-                <input type="text" name="name" value="{{ old('name') }}"></label>
+                <input type="text" name="name" placeholder="必須" value="{{ old('name') }}"></label>
         </p>
         <p>
             <label>カテゴリ<br>
-                <input type="text" name="category_id" value="{{ old('category_id') }}"></label>
+                <input type="text" name="category_id" placeholder="必須" value="{{ old('category_id') }}"></label>
         </p>
         <p>
             <label>住所<br>
-                <input type="text" name="address" value="{{ old('address') }}"></label>
+                <input type="text" name="address" placeholder="例：東京都豊島区池袋1-1-1" value="{{ old('address') }}"></label>
         </p>
         <p>
             <label>電話番号<br>
-                <input type="tel" name="tel" value="{{ old('tel') }}"></label>
+                <input type="tel" name="tel" placeholder="例：08012345678" value="{{ old('tel') }}"></label>
         </p>
         
         <p>
@@ -34,7 +34,7 @@
         </p>
         <p>
             <label>備考<br>
-                <input type="text" name="remarks" value="{{ old('remarks') }}"></label>
+                <input type="text" name="remarks" placeholder="任意" value="{{ old('remarks') }}"></label>
         </p>
        <p>
             <label>県<br>

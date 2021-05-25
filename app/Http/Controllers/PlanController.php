@@ -72,7 +72,7 @@ class PlanController extends Controller
             return view('plans/index',['plans' => $plans, 'prefectures' => $prefectures, 'error' => $error]);
 
         } else {
-            $plans = [];
+            $plans = Plan::all();
             $error = ['エラー'];
             return view('plans/index', ['plans' => $plans, 'prefectures' => $prefectures, 'error' => $error]);
         }
@@ -158,7 +158,7 @@ class PlanController extends Controller
      */
     public function edit(Plan $plan)
     {
-        return view('plan.edit', ['plan' => $plan]);
+        return view('plans.edit', ['plan' => $plan]);
     }
 
     /**
@@ -189,6 +189,6 @@ class PlanController extends Controller
     public function destroy(Plan $plan)
     {
         $plan->delete();
-        return redirect(route(''));
+        return redirect(route('hotels.show',$plan->hotel_id));
     }
 }

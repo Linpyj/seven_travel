@@ -17,10 +17,14 @@
     </section>
     
 <h2>現在の予約一覧</h2>
+<div class="review-form">
     @foreach ($reservations as $reservation)
         <h2>{{ $reservation->plan->hotel->name }}：{{ $reservation->plan->name }}</h2>
-        <p>チェックイン日{{ $reservation->check_in }}チェックアウト日{{ $reservation->check_out }}</p>
-        <a href="" onclick="reservation_destroy()">予約キャンセル</a>
+        <p>チェックイン日{{ $reservation->check_in }}　チェックアウト日{{ $reservation->check_out }}</p>
+
+        <section>
+            <a href="" onclick="reservation_destroy()" class="btn_4"><span>予約キャンセル</span></a>
+        </section>
         <form action="{{ route('reservations.destroy', $reservation->id) }}" id="reservation-destroy-form" method="post">
             @csrf
             @method('delete')
@@ -34,7 +38,7 @@
             }
         </script>
     @endforeach
-
+</div>
     
     <br>
     <section>
