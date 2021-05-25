@@ -5,12 +5,14 @@
     <form action="{{route('hotels.index')}}" method="get">
     @csrf
     @include('hotels.search')
-    <button type="submit">検索</button>
+    <section>
+        <button type="submit" class="btn_2"><span>検索</span></button>
+    </section>
     </form>
     @foreach($hotels as $hotel)
     
     @endforeach
-    <!-- {{ $products->appends(Request::all())->links() }} -->
+    
 @elseif(Auth::user())
     <div class="top">
         <h1 class="title">SEVEN TRAVEL</h1>
