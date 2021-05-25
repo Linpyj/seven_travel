@@ -26,7 +26,12 @@
 
 </dl>
 
-<p><button type=“button”><a href="{{ route('reservations.create') }}"> 予約フォームへ</button></p>
+<form action="{{ route('reservations.create') }}" method="get">
+    @csrf
+    <input type="hidden" name="plan_id" value="{{ $plan->id }}">
+    <button type="submit">予約フォームへ</button>
+</form>
+
 
 <p>
     @if(Auth::user()->is_admin)
