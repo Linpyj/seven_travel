@@ -17,7 +17,16 @@ class HotelController extends Controller
      */
     public function index(Request $request)
     {
-        $hotels = Hotel::with('category')->paginate(5);
+        // 名前だけ
+        // $hotels = Hotel::with('category')->paginate(5);
+        $hotel_name = $request->input('name');
+        if (!!$hotel_name) {
+            echo 'Yay';
+            $hotels = Hotel::where('name', 'like', '%' . $hotel_name . '%')->get();
+            // echo $hotels;
+        } else {
+            $hotels = Hotel::all();
+        }
         return view('hotels.index', ['hotels' => $hotels]);
     }
     /**
@@ -108,7 +117,7 @@ class HotelController extends Controller
             'prefecture' => 'required',
         ]);
         $hotel->update($request->all());
-        return redirect(route(''));
+        return view('hotels.update', ['hotel' => $hotel]);
     }
 
     /**
@@ -120,6 +129,6 @@ class HotelController extends Controller
     public function destroy(Hotel $hotel)
     {
         $hotel->delete();
-        return redirect(route(''));
+        return redirect(route('hotels.index'));
     }
 }

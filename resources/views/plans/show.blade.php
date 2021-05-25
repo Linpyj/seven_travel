@@ -8,23 +8,25 @@
 @else
     <p><img src="{{ asset('/storage/'.$plan->hotel->image) }}" alt="{{ $plan->hotel->id }}"></p>
 @endif
-<dl>
-    <dt>プラン名</dt>
-    <dd>{{ $plan->name }}</dd>
+
+<div class="old-form">
+    <dl>
+        <dt>プラン名</dt>
+        <dd>{{ $plan->name }}</dd>
     
-    <dt>ホテル</dt>
-    <dd><a href="{{ route('hotels.show', $plan->hotel->id) }}">{{ $plan->hotel->name }}</a></dd>
+        <dt>ホテル</dt>
+        <dd><a href="{{ route('hotels.show', $plan->hotel->id) }}">{{ $plan->hotel->name }}</a></dd>
 
-    <dt>見どころ</dt>
-    <dd>{{ $plan->remarks }}</dd>
+        <dt>見どころ</dt>
+        <dd>{{ $plan->remarks }}</dd>
 
-    <dt>価格</dt>
-    <dd>{{ $plan->price }}</dd>
+        <dt>価格</dt>
+        <dd>{{ $plan->price }}</dd>
 
-    <dt>部屋数</dt>
-    <dd>{{ $plan->number_of_room }}</dd>
-
-</dl>
+        <dt>部屋数</dt>
+        <dd>{{ $plan->number_of_room }}</dd>
+    </dl>
+</div>
 
 <form action="{{ route('reservations.create') }}" method="get">
     @csrf
@@ -36,9 +38,14 @@
 <p>
     @if(Auth::user()->is_admin)
     
-        <p><button type=“button”><a href="{{ route('home') }}">プラン情報編集</button></p>
+       
+        <section>
+            <a href="{{ route('home') }}" class="btn_1"><span>プランの編集</span></a>
+        </section>
 
-        <p><button type=“button”><a href="{{ route('home') }}">プランの削除</button></p>
+        <section>
+            <a href="{{ route('home') }}" class="btn_4"><span>プランの削除</span></a>
+        </section>
     @endif
 </p>
 

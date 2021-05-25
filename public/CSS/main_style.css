@@ -5,6 +5,8 @@ input[type=email],
 input[type=password],
 input[type=tel],
 input[type=date],
+input[type=number],
+input[type=time],
 textarea {
     width: 360px;
     padding: 8px;
@@ -455,12 +457,12 @@ a.btn_4:hover span {
 /*マイページレイアウトここまで */
 .hotel-form {
      width: 400px;
-     height:900px;
+     height:1000px;
      margin-left: 260px;
      margin-top: 30px;
      padding:30px;
      border-radius: 10px;
-     border: 1.5px solid  #009588 ;
+     border: 1.5px solid  #009588;
      background-color: #ffffff;
     }
 /*ホテル追加画面レイアウトここまで*/
@@ -472,3 +474,73 @@ a.btn_4:hover span {
     margin-left: 25%;
     }
 /*ホテル詳細画面レイアウトここまで */
+
+/*セレクトレイアウト*/
+.cp_select {
+	overflow: hidden;
+	width: 70%;
+	margin: 1.3em ;
+}
+
+.cp_select select {
+	width: 100%;
+	padding-right: 1em;
+	cursor: pointer;
+	text-indent: 0.01px;
+	text-overflow: ellipsis;
+	border: none;
+	outline: none;
+	-webkit-appearance: none;
+}
+
+.cp_select select::-ms-expand {
+    display: none;
+}
+.cp_select.cp_sl04 {
+	position: relative;
+	border-radius: 2px;
+	border: 1.5px solid #009588;
+    border-radius: 10px;
+	background: #ffffff;
+}
+.cp_select.cp_sl04::before {
+	position: absolute;
+	top: 0.8em;
+	right: 0.8em;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #009588;
+}
+.cp_select.cp_sl04 select {
+	padding: 8px 38px 8px 8px;
+	color: #009588;
+}
+/*セレクトレイアウト*/
+
+/*過去の予約画面レイアウト*/
+.old-form {
+  width: 100%;
+  height:100%;
+  margin-left: -40px;
+  margin-top: 30px;
+  padding:30px;
+  border-radius: 10px;
+  border: 1.5px solid  #009588 ;
+  background-color: #ffffff;
+ }
+/*過去の予約画面レイアウトここまで*/
+
+/* 口コミ投稿画面レイアウト*/
+.review-form {
+     background-color: #e8e8e8;
+     text-align:center;
+     width: 500px;
+     height: 280px;
+     margin-left: 210px;
+     margin-top: 30px;
+     padding:30px;
+     border-radius: 10px;
+    }
+/* 口コミ投稿画面レイアウトここまで*/
+

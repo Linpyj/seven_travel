@@ -6,8 +6,12 @@ use App\Models\Reservation;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
-{    
-    public function index(User $user){
+{   public function index(User $user){
+    echo "aaa";
+}
+    
+    
+    public function show(User $user){
         $date = date("Y-m-d");
         $query = Reservation::with('plan');
         $query->where('check_in', '>=', $date);

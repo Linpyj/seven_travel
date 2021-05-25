@@ -62,41 +62,46 @@ class PlanController extends Controller
             // dd($filtered);
 
             $plans = $filtered->whereNotNull('name');
-
+            $error = [];
             // dd($plans);
-
+            return view('plans/index',['plans' => $plans, 'prefectures' => $prefectures, 'error' => $error]);
 
         } else {
-            $filtered = Plan::with('hotel')->get();
-
-            // if ($request->price_min && $request->price_max) {
-            //     $filtered = $filtered->where('price', '>=', $request->price_min)->where('price', '<=', $request->price_max);
-            // }
-
-            if ($request->prefecture) {
-                $filtered = $filtered->map(function($item, $key) use($request) {
-                    if ($item['hotel']['prefecture'] == $request['prefecture']) {
-                        return $item;
-                    }
-                });
-            }
-
-            if ($request->price_min && $request->price_max) {
-                // $filtered = $filtered->where('price', '>=', $request->price_min)->where('price', '<=', $request->price_max);
-
-                $filtered = $filtered->map(function($item, $key) use($request) {
-                    if ($item['price'] >= $request['price_min'] && $item['price'] <= $request['price_max']) {
-                        return $item;
-                    }
-                });            
-            }
-
-            $plans = $filtered->whereNotNull('name');
-        
-            // dd($filtered);
-
+            $plans = [];
+            $error = ['エラー'];
+            return view('plans/index', ['plans' => $plans, 'prefectures' => $prefectures, 'error' => $error]);
         }
-        return view('plans/index',['plans' => $plans, 'prefectures' => $prefectures]);
+        // else {
+        //     $filtered = Plan::with('hotel')->get();
+
+        //     // if ($request->price_min && $request->price_max) {
+        //     //     $filtered = $filtered->where('price', '>=', $request->price_min)->where('price', '<=', $request->price_max);
+        //     // }
+
+        //     if ($request->prefecture) {
+        //         $filtered = $filtered->map(function($item, $key) use($request) {
+        //             if ($item['hotel']['prefecture'] == $request['prefecture']) {
+        //                 return $item;
+        //             }
+        //         });
+        //     }
+
+        //     if ($request->price_min && $request->price_max) {
+        //         // $filtered = $filtered->where('price', '>=', $request->price_min)->where('price', '<=', $request->price_max);
+
+        //         $filtered = $filtered->map(function($item, $key) use($request) {
+        //             if ($item['price'] >= $request['price_min'] && $item['price'] <= $request['price_max']) {
+        //                 return $item;
+        //             }
+        //         });            
+        //     }
+
+        //     $plans = $filtered->whereNotNull('name');
+        
+        //     // dd($filtered);
+
+        // }
+        
     }
 
     /**
@@ -107,7 +112,7 @@ class PlanController extends Controller
     public function create()
     {
         $plan = new Plan;
-        return view('plan/create', ['plan' => $plan]);
+        return view('plans/create', ['plan' => $plan]);
     }
 
     /**
