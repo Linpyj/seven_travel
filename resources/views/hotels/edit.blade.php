@@ -55,7 +55,7 @@
     </label>
     </p>
     <p>
-           <button type="submit"><a href="{{ route('hotels.show', \Auth::id()) }}">変更する</a></button>
+           <button type="submit"><a href="{{ route('hotels.show', $hotel->id) }}">変更する</a></button>
     </p>
 </form>
 @endsection
