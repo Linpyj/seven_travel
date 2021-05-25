@@ -10,7 +10,6 @@
     @foreach($hotels as $hotel)
     
     @endforeach
-    <!-- {{ $products->appends(Request::all())->links() }} -->
 @elseif(Auth::user())
     <div class="top">
         <h1 class="title">SEVEN TRAVEL</h1>

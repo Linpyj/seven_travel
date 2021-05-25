@@ -55,8 +55,11 @@
     </label>
     </p>
     <p>
-           <button type="submit"><a href="{{route('home', $hotel)}}"
+           <button type="submit"><a href="{{route('hotels.index', $hotel)}}"
            onclick="deleteHotel()">削除する</a></button>
+    </p>
+    <p>
+           <button type=“button”><a href="{{ route('hotels.index') }}">戻る</a></button>
     </p>
 </form>
 <script type="text/javascript">
