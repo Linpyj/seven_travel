@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Reservation;
 use App\Models\User;
+use App\Models\Plan;
+use App\Models\Hotel;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -28,22 +30,22 @@ class ReservationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(Request $request)
+    {   
         $reservation = new Reservation;
-        return view('reservations.create', ['reservation' => $reservation]);
+        $plan_id = request('plan_id');
+        $plan = Plan::where('id', $plan_id)->first();
+        return view('reservations.create', ['reservation' => $reservation, 'plan' => $plan]);
     }
 
-    public function confirm()
+    public function show(Request $request)
     {
-        $input_data = 
-        [
-            $name = Input::get('user_name'),
-            $plan = Input::get('plan'),
-            $check_in = Input::get('check_in'),
-            $check_out = Input::get('check_out'),
-        ];
-        return view('confirm', ['input_data' => $input_data]);
+        $input_data = array(
+            'check_in' => $request->check_in,
+            'check_out' => $request->check_out,
+        );
+        $plan = Plan::with('hotel')->where('id', $request->plan_id)->first();
+        return view('reservations.confirm', ['input_data' => $input_data, 'plan' => $plan]);
 
     }
 
@@ -58,18 +60,17 @@ class ReservationController extends Controller
         $this->validate($request, [
             'check_in' => 'required',
             'check_out' => 'required',
-            'status' => 'required|max:10',
             ]);
-        echo $request;
-
         // 予約を保存
-        $reservation = $request->user->reservations->create($request->all());
-
-        // 予約対象のプランを検索＆該当プランの部屋数を予約テーブルにも保存
-        $plan = Plan::where('id', '==', $request->plan_id);
-        $reservation->number_of_rooms = $plan->number_of_rooms;
+        $reservation = new Reservation;
+        $reservation->user_id = \Auth::id();
+        $reservation->plan_id = $request->plan_id;
+        $reservation->check_in = $request->check_in;
+        $reservation->check_out = $request->check_out;
+        $reservation->number_of_rooms = $request->number_of_room;
+        $reservation->status = 1;
         $reservation->save();
-        return redirect(route('/'));
+        return redirect(route('home'));
     }
 
     /**

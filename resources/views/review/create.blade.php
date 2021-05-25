@@ -5,7 +5,7 @@
 
      <form action="{{ route('reviews.store') }}" method="POST" id="create-form">
         @csrf
-        <div class="first-form">
+        <div class="review-form">
             <dl>
                 <dt>タイトル</dt>
                 <dd>

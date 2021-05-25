@@ -25,6 +25,6 @@
 
 <br>
 <section>
-    <a href="{{ route('users.index') }}" class="btn_1"><span>前の画面に戻る</span></a>
+    <a href="{{ route('users.show',\Auth::id()) }}" class="btn_1"><span>前の画面に戻る</span></a>
 </section>
 @endsection
