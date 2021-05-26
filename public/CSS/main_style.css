@@ -204,8 +204,10 @@ padding: 8px;
 
     .top_image {
     width: 280px;
+    height:180px;
     margin: 1px;
     margin-left: 40px;
+    border-radius:5px;
     }
 
     .site_image {
@@ -217,6 +219,14 @@ padding: 8px;
     #catch {
       text-align: center;
       font-size: 12px;
+    }
+
+    .season {
+    	display: flex;
+    }
+
+    .season p{
+    	margin:10px 86px;
     }
 
 /*トップページレイアウトここまで */

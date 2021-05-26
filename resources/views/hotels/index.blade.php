@@ -58,12 +58,14 @@
         <br>
         <p class="subtitle">SEVEN TRAVELおすすめのホテル</p>
         <p id="catch">SEVEN TRAVEL厳選！各シーズンおすすめホテル</p>
-        <a href="{{ route('hotels.show', 2) }}"><img src="/sample1.jpg" alt="spring_hotel" class="top_image"></a>
+        <a href="{{ route('hotels.show', 2) }}"><img src="/sample2.jpeg" alt="spring_hotel" class="top_image"></a>
         <a href="{{ route('hotels.show', 5) }}"><img src="/sample1.jpg" alt="fall_hotel" class="top_image"></a>
-        <a href="{{ route('hotels.show', 8) }}"><img src="/sample1.jpg" alt="winter_hotel" class="top_image"></a>
+        <a href="{{ route('hotels.show', 8) }}"><img src="/sample3.jpeg" alt="winter_hotel" class="top_image"></a>
 
-        <p>春におすすめのホテル</p>
-        <p>夏におすすめのホテル</p>
-        <p>冬におすすめのホテル</p>
+        <div class="season">
+            <p>春におすすめのホテル</p>
+            <p>夏におすすめのホテル</p>
+            <p>冬におすすめのホテル</p>
+        </div>
     @endif
 @endsection
