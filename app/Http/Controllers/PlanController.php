@@ -78,7 +78,7 @@ class PlanController extends Controller
             return view('plans/index',['plans' => $plans, 'prefectures' => $prefectures, 'error' => $error, 'error2' => $error2]);
 
         } else {
-            $plans = Plan::all();
+            $plans = [];
             $error = ['エラー'];
             $error2 = [];
             return view('plans/index', ['plans' => $plans, 'prefectures' => $prefectures, 'error' => $error, 'error2' => $error2]);
