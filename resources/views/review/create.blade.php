@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@include('commons/flash')
 <h1>口コミ投稿</h1>
 
      <form action="{{ route('reviews.store') }}" method="POST" id="create-form">
