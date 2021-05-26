@@ -24,14 +24,14 @@ class UserController extends Controller
         $query->where('user_id', \Auth::id());
         $reservations = $query->get();
 
-        if ($user->id == \Auth::id()) {
-            return view('auth.mypage', ['reservations' => $reservations]);
-        } else {
+        if (\Auth::user()->is_admin == 1) {
+            // 管理者でログインしている場合
             $user = User::where('id', $user->id)->get();
-            
             return view('users.show', ['user' => $user]);
-        }
-        
+        } else {
+            // 一般ユーザーでログインしている場合
+            return view('auth.mypage', ['reservations' => $reservations]);
+        }        
     }
     public function edit(User $user) {
         return view('auth.edit', ['user' => $user]);
