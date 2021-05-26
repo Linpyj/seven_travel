@@ -30,7 +30,7 @@
 
     </dl>
     
-    <button type="submit">変更</a></button>
+    <button type="submit">変更</button>
 
 </form>
 
