@@ -163,7 +163,7 @@ class PlanController extends Controller
         ]);
         $plan->timestamps = false;
         $plan->update($request->all());
-        return redirect(route(''));
+        return view('plans.show', ['plan' => $plan]);
     }
 
     /**
