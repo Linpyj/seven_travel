@@ -5,14 +5,14 @@
 <h1>予約確認</h1>
 <p class="script">こちらの予約でお間違えないですか？</p>
 
-
+<div class="first-form">
 <div>
     <label>ホテル</label>
     <p>{{ $plan->hotel->name }}</p>
 </div>
 <form action="{{ route('reservations.store') }}" method="post">
     @csrf
-<div class="first-form">
+
     <div>
         <label>プラン</label>
         <p>{{ $plan->name }}</p>
