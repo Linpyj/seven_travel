@@ -18,7 +18,7 @@
                     <input type="text" name="content" placeholder="300文字以内" value="{{ old('content') }}">
                 </dd>
                 <dd>
-                <input type="hidden" name="hotel_id" value="{{ old('hotel_id') }}">
+                <input type="hidden" name="hotel_id" value="{{ $hotel_id }}">
                 </dd>
             </dl>
         </div>

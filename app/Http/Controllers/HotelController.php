@@ -66,8 +66,10 @@ class HotelController extends Controller
         $hotel->check_out = $request->check_out;
         $hotel->remarks = $request->remarks;
         $hotel->prefecture = $request->prefecture;
-        $filename = $request->file('image')->store('public');
-        $hotel->image = str_replace('public/','',$filename);
+        if($request->file('image')){
+            $filename = $request->file('image')->store('public');
+            $hotel->image = str_replace('public/','',$filename);
+        }
         $hotel->timestamps = false;
         $hotel->save();
         return redirect(route('hotels.index'));
