@@ -40,6 +40,14 @@ class UserController extends Controller
             }
     }
     public function edit(User $user) {
+        $this->validate($request, [
+        'name' => 'required|max:50',
+        'address' => 'required|max:200',
+        'tel' => 'required|numeric|digits_between:8,11',
+        'email' => 'required|email|max:50|unique:users',
+        'birthday' => 'required',
+        'password' => 'required|min:8|confirmed',
+        ]);
         return view('auth.edit', ['user' => $user]);
     }
 
