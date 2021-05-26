@@ -9,7 +9,7 @@
     <p><img src="{{ asset('/storage/'.$plan->hotel->image) }}" alt="{{ $plan->hotel->id }}"></p>
 @endif
 
-<div class="old-form">
+<div class="fifth-form">
     <dl>
         <dt>プラン名</dt>
         <dd>{{ $plan->name }}</dd>

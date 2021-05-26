@@ -61,5 +61,9 @@
         <a href="/"><img src="/sample1.jpg" alt="spring_hotel" class="top_image"></a>
         <a href="/"><img src="/sample1.jpg" alt="fall_hotel" class="top_image"></a>
         <a href="/"><img src="/sample1.jpg" alt="winter_hotel" class="top_image"></a>
+
+        <p>春におすすめのホテル</p>
+        <p>夏におすすめのホテル</p>
+        <p>冬におすすめのホテル</p>
     @endif
 @endsection

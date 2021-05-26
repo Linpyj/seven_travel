@@ -3,6 +3,7 @@
 @section('content')
 <h1>プラン追加</h1>
 
+<div class="old-form">
      <form action="{{ route('home', $plan) }}" method="POST" id="create-form">
          @csrf
 
@@ -14,7 +15,7 @@
         
         <dt>プランの価格</dt>
         <dd>
-            <input type="" name="price" value="{{ old('price', $plan->price)}}" placeholder="7桁以内で入力してください。">
+            <input type="number" name="price" value="{{ old('price', $plan->price)}}" placeholder="7桁以内で入力してください。">
         </dd>
 
         <dt>プランの部屋数</dt>
@@ -32,6 +33,7 @@
             <button type="submit" onclick="createPlan()" class="btn_2"><span>追加</span></button>
         </section>
 
+</div>
     </form>
 
         <script type="text/javascript">
