@@ -47,14 +47,22 @@
     
     <br>
     <dt>口コミ</dt>
+    @if (count($reviews) == 0)
+        <tr>
+            <td>このホテルの口コミはありません</td>
+        </tr>
+    @else
+        @foreach($reviews as $review)       
+        <tr>
 
-    @foreach($reviews as $review)       
-                <tr>
-                    <td>{{ $review->title }}</td>
-                    <td>{!! nl2br(e($review->content)) !!}</td>
-                    <td>{{ $review->created_at }}</td><br><hr>
-                </tr>
-    @endforeach
+            <td>{{ $review->title }}</td>：
+            <td>{!! nl2br(e($review->content)) !!}</td>
+            <td>{{ $review->created_at }}</td><br><hr>
+        </tr>
+        @endforeach
+    @endif
+
+    
 
 </dl>
 </div>
