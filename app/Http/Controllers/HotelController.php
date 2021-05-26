@@ -16,14 +16,11 @@ class HotelController extends Controller
      * 
      */
     public function index(Request $request)
-    {
-        // 名前だけ
-        // $hotels = Hotel::with('category')->paginate(5);
+    {   
         $hotel_name = $request->input('name');
         if (!!$hotel_name) {
-            echo 'Yay';
             $hotels = Hotel::where('name', 'like', '%' . $hotel_name . '%')->get();
-            // echo $hotels;
+
         } else {
             $hotels = Hotel::all();
         }
