@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>プラン追加</h1>
-
+@include('commons/flash')
 <div class="old-form">
      <form action="{{ route('plans.store') }}" method="post" id="create-form">
          @csrf

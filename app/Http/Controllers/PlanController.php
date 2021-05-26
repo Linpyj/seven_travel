@@ -139,7 +139,7 @@ class PlanController extends Controller
         $this->validate($request, [
             'name' => 'required|max:50',
             'price' => 'required|numeric|max:7',
-            'number_of_room' => 'required|numeric|max:4',
+            'number_of_room' => 'required|numeric|max:10',
             'remarks' => 'max:100',
         ]);
         $plan = new Plan;
@@ -174,6 +174,7 @@ class PlanController extends Controller
      */
     public function edit(Plan $plan)
     {
+        
         return view('plans.edit', ['plan' => $plan]);
     }
 
@@ -186,12 +187,12 @@ class PlanController extends Controller
      */
     public function update(Request $request, Plan $plan)
     {
-        // $this->validate($request, [
-        //     'name' => 'required|max:50',
-        //     'price' => 'required|numeric|max:7',
-        //     'number_of_room' => 'required|numeric|max:4',
-        //     'remarks' => 'max:100',
-        // ]);
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'price' => 'required|numeric|max:7',
+            'number_of_room' => 'required|numeric|max:10',
+            'remarks' => 'max:100',
+        ]);
         $plan->timestamps = false;
         $plan->update($request->all());
         return redirect(route('plans.show', $plan->id));
