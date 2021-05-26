@@ -28,15 +28,21 @@
     </dl>
 </div>
 
-<form action="{{ route('reservations.create') }}" method="get">
-    @csrf
-    <input type="hidden" name="plan_id" value="{{ $plan->id }}">
+@if(!(Auth::user()->is_admin))
+    <form action="{{ route('reservations.create') }}" method="get">
+        @csrf
+        <input type="hidden" name="plan_id" value="{{ $plan->id }}">
+        <br>
+        <section>
+            <button type="submit" class="btn_2"><span>予約フォームへ</span></button>
+        </section>
+    </form>
+@endif
 
-<br>
-    <section>
-        <button type="submit" class="btn_2"><span>予約フォームへ</span></button>
-    </section>
-</form>
+
+
+    
+
 
 
 <p>

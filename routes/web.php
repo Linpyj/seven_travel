@@ -32,4 +32,5 @@ Route::group(['middleware' => ['auth']], function (){
     Route::get('home', 'HotelController@index')->name('home');
     //Route::get('reservations/confirm', 'ReservationController@confirm')->name('confirm');
     Route::post('reservations/show', 'ReservationController@show')->name('confirm');
+    Route::get('mypage', 'UserController@show')->name('mypage');
 });
