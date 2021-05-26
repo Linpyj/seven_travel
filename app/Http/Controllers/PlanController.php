@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plan;
+use App\Models\Hotel;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
@@ -82,37 +83,6 @@ class PlanController extends Controller
             $error2 = [];
             return view('plans/index', ['plans' => $plans, 'prefectures' => $prefectures, 'error' => $error, 'error2' => $error2]);
         }
-        // else {
-        //     $filtered = Plan::with('hotel')->get();
-
-        //     // if ($request->price_min && $request->price_max) {
-        //     //     $filtered = $filtered->where('price', '>=', $request->price_min)->where('price', '<=', $request->price_max);
-        //     // }
-
-        //     if ($request->prefecture) {
-        //         $filtered = $filtered->map(function($item, $key) use($request) {
-        //             if ($item['hotel']['prefecture'] == $request['prefecture']) {
-        //                 return $item;
-        //             }
-        //         });
-        //     }
-
-        //     if ($request->price_min && $request->price_max) {
-        //         // $filtered = $filtered->where('price', '>=', $request->price_min)->where('price', '<=', $request->price_max);
-
-        //         $filtered = $filtered->map(function($item, $key) use($request) {
-        //             if ($item['price'] >= $request['price_min'] && $item['price'] <= $request['price_max']) {
-        //                 return $item;
-        //             }
-        //         });            
-        //     }
-
-        //     $plans = $filtered->whereNotNull('name');
-        
-        //     // dd($filtered);
-
-        // }
-        
     }
 
     /**
@@ -120,10 +90,11 @@ class PlanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Hotel $hotel)
     {
+        $hotel_id = request('hotel');
         $plan = new Plan;
-        return view('plans/create', ['plan' => $plan]);
+        return view('plans/create', ['plan' => $plan, 'hotel_id' => $hotel_id]);
     }
 
     /**
@@ -134,8 +105,9 @@ class PlanController extends Controller
      */
     public function store(Request $request)
     {
-        // echo $request->name;
-        echo request();
+        dd($request);
+        // echo $request->number_of_room;
+        // echo $request->price;
         $this->validate($request, [
             'name' => 'required|max:50',
             'price' => 'required|numeric|max:7',
@@ -143,15 +115,14 @@ class PlanController extends Controller
             'remarks' => 'max:100',
         ]);
         $plan = new Plan;
-        $plan->hotel_id = 
+        $plan->hotel_id = $request->hotel_id;
         $plan->name = $request->name;
         $plan->price = $request->price;
         $plan->number_of_room = $request->number_of_room;
         $plan->remarks = $request->remarks;
-        echo $request->all();
-        echo $request->hotel->plans;
-        // $request->hotel->plans->create($request->all());
-        // return redirect(route(''));
+        $plan->timestamps = false;
+        $plan->save();
+        return redirect('/');
     }
 
     /**
@@ -186,15 +157,14 @@ class PlanController extends Controller
      */
     public function update(Request $request, Plan $plan)
     {
-        // $this->validate($request, [
-        //     'name' => 'required|max:50',
-        //     'price' => 'required|numeric|max:7',
-        //     'number_of_room' => 'required|numeric|max:4',
-        //     'remarks' => 'max:100',
-        // ]);
-        $plan->timestamps = false;
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'price' => 'required|numeric|max:7',
+            'number_of_room' => 'required|numeric|max:4',
+            'remarks' => 'max:100',
+        ]);
         $plan->update($request->all());
-        return redirect(route('plans.show', $plan->id));
+        return redirect(route(''));
     }
 
     /**

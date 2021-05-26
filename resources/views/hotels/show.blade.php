@@ -63,7 +63,7 @@
     @if(Auth::user()->is_admin)
     <h2>管理者メニュー</h2>
         <section>
-            <a href="{{ route('plans.create', $hotel->id) }}" class="btn_3"><span>プランの追加</span></a>
+            <a href="{{ route('plans.create', ['hotel' => $hotel->id]) }}" class="btn_3"><span>プランの追加</span></a>
         </section>
         <section>
             <a href="{{ route('hotels.edit', $hotel->id) }}" class="btn_1"><span>ホテル情報編集</span></a>
