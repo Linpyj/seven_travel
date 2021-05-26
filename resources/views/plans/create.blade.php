@@ -26,7 +26,7 @@
     
         <dt>見どころ</dt>
         <dd>
-            <textarea name="remark" row="5" placeholder="100文字以内で入力してください。">{{ old('remark', $plan->remark)}}</textarea>
+            <textarea name="remarks" row="5" placeholder="100文字以内で入力してください。">{{ old('remark', $plan->remark)}}</textarea>
         </dd>
         <dd>
             <input type="hidden" name="hotel_id" value="{{$hotel_id}}">
