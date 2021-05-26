@@ -87,7 +87,7 @@
 
 <br>
 <section>
-    <a href="{{ route('home') }}" class="btn_1"><span>ホームに戻る</span></a>
+    <a href="{{ route('hotels.index') }}" class="btn_1"><span>ホームに戻る</span></a>
 </section>
 
 
