@@ -28,7 +28,28 @@
        <a href="{{ route('users.index') }}" class="btn_1"><span>戻る</span></a>
 </section>
 
+<h2>ログアウトメニュー</h2>
+<br>
+<section>
+        <a href="" onclick="logout()" class="btn_3"><span>ログアウトする</span></a>
+        <form action="{{ route('logout') }}" id="logout-form" method="post">
+        @csrf
+        </form>
+        <script type="text/javascript">
+            function logout() {
+            event.preventDefault();
+            if(window.confirm('ログアウトしますか？')){
+            document.getElementById('logout-form').submit();
+            }
+            }
+        </script>
+    </tr>
+</table>
 
+<br>
+<section>
+    <a href="{{ route('hotels.index') }}" class="btn_1"><span>ホームに戻る</span></a>
+</section>
 
 @endforeach
 
