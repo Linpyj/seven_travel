@@ -23,8 +23,11 @@ class UserController extends Controller
         $query->where('user_id', \Auth::id());
         $reservations = $query->get();
 
-        $url = mb_strstr(url()->previous(), '?', true) ? mb_strstr(url()->previous(), '?', true) : url()->previous();
 
+
+        $url = mb_strstr(url()->previous(), '?', true) ? mb_strstr(url()->previous(), '?', true) : url()->previous();
+        if (!!(\Auth::user()->is_admin)) {
+            // 管理者ユーザの場合
             if ($url == 'http://localhost:8000/users') {
                 // 会員詳細画面
                 if ($user->id == \Auth::user()->id) {
@@ -38,7 +41,11 @@ class UserController extends Controller
                 $reservations = [];
                 return view('auth.mypage', ['reservations' => $reservations]);
             }
+    } else {
+        // 一般ユーザーの場合
+        return view('auth.mypage', ['reservations' => $reservations]);
     }
+} 
     public function edit(User $user) {
         $this->validate($request, [
         'name' => 'required|max:50',
