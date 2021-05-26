@@ -3,6 +3,7 @@
 <dd>
     <div class="cp_select cp_sl04">
         <select name="prefecture">
+            <option value="{{ request('prefecture') }}" disabled selected style='display:none;'>都道府県</option>
             <?php
             foreach ( $prefectures as $prefecture ) {
                 echo '<option value="', $prefecture, '">', $prefecture, '</option>';

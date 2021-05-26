@@ -18,7 +18,7 @@
                     <input type="text" name="content" value="{{ old('content') }}">
                 </dd>
                 <dd>
-                <input type="hidden" name="hotel_id" value="{{ old('hotel_id') }}">
+                <input type="hidden" name="hotel_id" value="{{ $hotel_id }}">
                 </dd>
             </dl>
         </div>

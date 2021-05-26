@@ -13,7 +13,11 @@
 
     @if (count($plans) == 0)
         @if (count($error) == 0)
-            <p>申し訳ございません。検索条件に該当するプランはありません。</p>
+            @if(count($error2))
+                <p>現在より前の予約はできません。</p>
+            @else
+                <p>申し訳ございません。検索条件に該当するプランはありません。</p>
+            @endif
         @else
             <p>日時指定は必須です。</p>
         @endif
@@ -25,6 +29,7 @@
                     <th>ホテル名</th>
                     <th>プラン名</th>
                     <th>値段</th>
+                    <th>空き部屋数</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,7 +47,8 @@
                             >
                             {{ $plan['name'] }}
                             </a></td>
-                        <td>{{ $plan['price'] }}</td>
+                        <td>{{ $plan['price'] }}円</td>
+                        <td>{{ $plan['number_of_room'] - $plan['reservations_count'] }}</td>
                     </tr>
                 @endforeach            
             </tbody>

@@ -7,6 +7,7 @@ use App\Models\Plan;
 use App\Models\Hotel;
 use Illuminate\Http\Request;
 
+use Illuminate\Database\Eloquent\Builder;
 class ReservationController extends Controller
 {
     /**
@@ -34,7 +35,9 @@ class ReservationController extends Controller
     {   
         $reservation = new Reservation;
         $plan_id = request('plan_id');
+        // dd($plan_id);
         $plan = Plan::where('id', $plan_id)->first();
+        // dd($plan);
         return view('reservations.create', ['reservation' => $reservation, 'plan' => $plan]);
     }
 
@@ -57,20 +60,28 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
+        $flag = true;
         $this->validate($request, [
             'check_in' => 'required',
             'check_out' => 'required',
-            ]);
-        // 予約を保存
-        $reservation = new Reservation;
-        $reservation->user_id = \Auth::id();
-        $reservation->plan_id = $request->plan_id;
-        $reservation->check_in = $request->check_in;
-        $reservation->check_out = $request->check_out;
-        $reservation->number_of_rooms = $request->number_of_room;
-        $reservation->status = 1;
-        $reservation->save();
-        return redirect(route('home'));
+            'number_of_room' => 'required',
+        ]);
+        $reservation_count = Reservation::where('check_in','<=', $request->check_out)->where('check_out', '>=', $request->check_in)->where('plan_id',$request->plan_id)->count();
+        //$reservation_room = Reservation::where('plan_id',$request->plan_id)->first();
+        if($reservation_count < $request->number_of_room){
+            // 予約を保存
+            $reservation = new Reservation;
+            $reservation->user_id = \Auth::id();
+            $reservation->plan_id = $request->plan_id;
+            $reservation->check_in = $request->check_in;
+            $reservation->check_out = $request->check_out;
+            $reservation->number_of_rooms = $request->number_of_room;
+            $reservation->status = 1;
+            $reservation->save();
+            return view('reservations.complete', ['flag' => $flag]);
+        }
+        $flag = false;
+        return view('reservations.complete', ['flag' => $flag]);
     }
 
     /**
