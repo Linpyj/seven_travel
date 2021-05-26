@@ -43,6 +43,10 @@ class ReservationController extends Controller
 
     public function show(Request $request)
     {
+        $this->validate($request, [
+            'check_in' => 'required',
+            'check_out' => 'required',
+        ]);
         $input_data = array(
             'check_in' => $request->check_in,
             'check_out' => $request->check_out,
@@ -61,11 +65,6 @@ class ReservationController extends Controller
     public function store(Request $request)
     {
         $flag = true;
-        $this->validate($request, [
-            'check_in' => 'required',
-            'check_out' => 'required',
-            'number_of_room' => 'required',
-        ]);
         $reservation_count = Reservation::where('check_in','<=', $request->check_out)->where('check_out', '>=', $request->check_in)->where('plan_id',$request->plan_id)->count();
         //$reservation_room = Reservation::where('plan_id',$request->plan_id)->first();
         if($reservation_count < $request->number_of_room){

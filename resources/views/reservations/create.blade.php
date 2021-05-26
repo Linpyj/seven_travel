@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>予約受付</h1>
-
+    @include('commons/flash')
 <div class="fifth-form">
     <dt>プラン</dt>
     <dd>{{ $plan->name }}</dd>
@@ -12,7 +12,6 @@
 </div>
     <p class="script">上記のホテルとプラン名で予約します。</p>
     <p class="script">チェックイン日、チェックアウト日を入力してください。</p>
-
 
 <div class="review-form">
     <form action="{{ route('confirm') }}" method="post">
