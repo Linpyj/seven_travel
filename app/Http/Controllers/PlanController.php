@@ -105,7 +105,6 @@ class PlanController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         // echo $request->number_of_room;
         // echo $request->price;
         $this->validate($request, [
