@@ -4,22 +4,21 @@
 <h1>会員詳細ページ</h1>
 
 <div class="old-form">
-@foreach($user as $item)
 <dl>
     <dt>ID</dt>
-    <dd>{{ $item->id }}</dd>
+    <dd>{{ $user->id }}</dd>
     
     <dt>ユーザ名</dt>
-    <dd>{{ $item->name }}</dd>
+    <dd>{{ $user->name }}</dd>
 
     <dt>メールアドレス</dt>
-    <dd>{{ $item->email }}</dd>
+    <dd>{{ $user->email }}</dd>
 
     <dt>生年月日</dt>
-    <dd>{{ $item->birthday }}</dd>
+    <dd>{{ $user->birthday }}</dd>
 
     <dt>電話番号</dt>
-    <dd>{{ $item->tel }}</dd>
+    <dd>{{ $user->tel }}</dd>
 </dl>
 </div>
 
@@ -30,6 +29,5 @@
 
 
 
-@endforeach
 
 @endsection
