@@ -176,14 +176,15 @@ class PlanController extends Controller
      */
     public function update(Request $request, Plan $plan)
     {
-        $this->validate($request, [
-            'name' => 'required|max:50',
-            'price' => 'required|numeric|max:7',
-            'number_of_room' => 'required|numeric|max:4',
-            'remarks' => 'max:100',
-        ]);
+        // $this->validate($request, [
+        //     'name' => 'required|max:50',
+        //     'price' => 'required|numeric|max:7',
+        //     'number_of_room' => 'required|numeric|max:4',
+        //     'remarks' => 'max:100',
+        // ]);
+        $plan->timestamps = false;
         $plan->update($request->all());
-        return redirect(route(''));
+        return redirect(route('plans.show', $plan->id));
     }
 
     /**
