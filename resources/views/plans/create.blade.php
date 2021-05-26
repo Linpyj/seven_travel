@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+@include('commons/flash')
 <h1>プラン追加</h1>
 @include('commons/flash')
 <div class="old-form">
      <form action="{{ route('plans.store') }}" method="post" id="create-form">
          @csrf
-        <p>{{ request() }}</p>
 
         <dl>
         <dt>プランの名前</dt>
@@ -28,14 +28,16 @@
         <dd>
             <textarea name="remark" row="5" placeholder="100文字以内で入力してください。">{{ old('remark', $plan->remark)}}</textarea>
         </dd>
+        <dd>
+            <input type="hidden" name="hotel_id" value="{{$hotel_id}}">
+        </dd>
         </dl>
-
         <section>
             <button type="submit" onclick="createPlan()" class="btn_2"><span>追加</span></button>
         </section>
+    </form>
 
 </div>
-    </form>
 
         <script type="text/javascript">
          function createPlan() {

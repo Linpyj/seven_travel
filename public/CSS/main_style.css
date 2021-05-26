@@ -204,8 +204,10 @@ padding: 8px;
 
     .top_image {
     width: 280px;
+    height:180px;
     margin: 1px;
     margin-left: 40px;
+    border-radius:5px;
     }
 
     .site_image {
@@ -217,6 +219,14 @@ padding: 8px;
     #catch {
       text-align: center;
       font-size: 12px;
+    }
+
+    .season {
+    	display: flex;
+    }
+
+    .season p{
+    	margin:10px 86px;
     }
 
 /*トップページレイアウトここまで */
@@ -461,9 +471,9 @@ a.btn_4:hover span {
 
 /*ホテル詳細画面レイアウト */
 .hotel_image {
-    width: 700px;
+    width: 600px;
     margin: 10px;
-    margin-left: 150px;
+    margin-left: 202px;
     }
     
 .six-form {

@@ -44,10 +44,7 @@
     <input type="tel" name="tel" placeholder="例：08012345678"
            value="{{ old('tel', $hotel->tel)}}"></label>
     </p>
-    <p>
-    <label>画像<br>
-       <input type="file" name="image" value="{{ old('image', $hotel->image) }}"></label></label>
-    </p>
+    
     <p>
     <label>チェックイン<br>
     <input type="time" name="check_in"
@@ -63,11 +60,15 @@
     <input type="text" name="remarks" placeholder="任意"
            value="{{ old('remarks', $hotel->remarks)}}"></label>
     </p>
-    
+    <p>
+
+    <label>画像<br>
+       <input type="file" name="image" value="{{ old('image', $hotel->image) }}"></label></label>
+    </p>
 
     <br>
     <section>
-           <button type="submit" class="btn_3"><span>変更する</span></button>
+           <button type="submit" class="btn_2"><span>変更する</span></button>
     </section>
 </form>
 </div>
