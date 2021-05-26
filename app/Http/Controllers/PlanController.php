@@ -105,12 +105,10 @@ class PlanController extends Controller
      */
     public function store(Request $request)
     {
-        // echo $request->number_of_room;
-        // echo $request->price;
         $this->validate($request, [
             'name' => 'required|max:50',
-            'price' => 'required|numeric|max:7',
-            'number_of_room' => 'required|numeric|max:10',
+            'price' => 'required|numeric|max:1000000',
+            'number_of_room' => 'required|numeric|max:100',
             'remarks' => 'max:100',
         ]);
         $plan = new Plan;
