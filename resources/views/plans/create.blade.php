@@ -4,8 +4,9 @@
 <h1>プラン追加</h1>
 
 <div class="old-form">
-     <form action="{{ route('home', $plan) }}" method="POST" id="create-form">
+     <form action="{{ route('plans.store') }}" method="post" id="create-form">
          @csrf
+        <p>{{ request() }}</p>
 
         <dl>
         <dt>プランの名前</dt>

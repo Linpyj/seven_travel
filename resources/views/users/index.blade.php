@@ -10,7 +10,6 @@
             <button type="submit" class="btn_2"><span>検索</span></button>
         </section>
     </form>
-
         @if (count($users) == 0)
             <p>該当項目なし</p>
         @else

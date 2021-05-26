@@ -134,14 +134,24 @@ class PlanController extends Controller
      */
     public function store(Request $request)
     {
+        // echo $request->name;
+        echo request();
         $this->validate($request, [
             'name' => 'required|max:50',
             'price' => 'required|numeric|max:7',
             'number_of_room' => 'required|numeric|max:4',
             'remarks' => 'max:100',
         ]);
-        $request->hotel->plans()->create($request->all());
-        return redirect(route(''));
+        $plan = new Plan;
+        $plan->hotel_id = 
+        $plan->name = $request->name;
+        $plan->price = $request->price;
+        $plan->number_of_room = $request->number_of_room;
+        $plan->remarks = $request->remarks;
+        echo $request->all();
+        echo $request->hotel->plans;
+        // $request->hotel->plans->create($request->all());
+        // return redirect(route(''));
     }
 
     /**

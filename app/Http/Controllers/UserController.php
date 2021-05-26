@@ -25,9 +25,15 @@ class UserController extends Controller
         $reservations = $query->get();
 
         if (\Auth::user()->is_admin == 1) {
-            // 管理者でログインしている場合
-            $user = User::where('id', $user->id)->get();
-            return view('users.show', ['user' => $user]);
+            // // 管理者でログインしている場合
+            if (url()->previous() == 'http://localhost:8000/users') {
+                // 会員詳細画面
+                $user = User::where('id', $user->id)->get();
+                return view('users.show', ['user' => $user]);
+            } else {
+                $reservations = [];
+                return view('auth.mypage', ['reservations' => $reservations]);
+            }
         } else {
             // 一般ユーザーでログインしている場合
             return view('auth.mypage', ['reservations' => $reservations]);
