@@ -38,13 +38,14 @@
         </p>
        <p>
             <label>県<br>
-              <div class="cp_select cp_sl04">
-                <select type="text" class="form-control" name="prefecture">
-                    @foreach ((array) config('pref') as $key => $score)
-                        <option value="{{ $score }}">{{ $score }}</option>
-                    @endforeach
-                </select>
-              </div>
+              <select name="prefecture" type="text" class="form-control">
+                <option value="{{ request('prefecture') }}" disabled selected style='display:none;'>都道府県</option>
+                <?php
+                foreach ( $prefectures as $prefecture ) {
+                    echo '<option value="', $prefecture, '">', $prefecture, '</option>';
+                }
+                ?>
+            </select>
             </label>
         </p>
         <p>
