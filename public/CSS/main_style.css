@@ -461,10 +461,28 @@ a.btn_4:hover span {
 
 /*ホテル詳細画面レイアウト */
 .hotel_image {
-    width: 50%;
-    margin: 5px;
-    margin-left: 25%;
+    width: 700px;
+    margin: 10px;
+    margin-left: 150px;
     }
+    
+.six-form {
+  width: 80%;
+  height:100%;
+  margin-left: 90px;
+  margin-top: 30px;
+  padding:10px;
+  text-align:center;
+  border-radius: 10px;
+  border: 1.5px solid  #009588 ;
+  background-color: #ffffff;
+  font-size:18px
+ }
+
+ #hotel_name{
+ 	text-align:center;
+ 	font-size: 25px;
+ }
 /*ホテル詳細画面レイアウトここまで */
 
 /*セレクトレイアウト*/
