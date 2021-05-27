@@ -3,6 +3,7 @@
 @section('content')
 <h1>ログイン</h1>
 
+@include('commons/flash')
 <form action="{{route('login')}}" method="post">
     @csrf
 
@@ -22,7 +23,7 @@
     </section>
     </div>
 
-    <p id="register-script">会員登録がお済出ない方はこちら</p>
+    <p id="register-script">会員登録がおす出ない方はこちら</p>
 
     <section>
         <a href="{{ route('register') }}" class="btn_1"><span>新規登録</span></a>

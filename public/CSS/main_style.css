@@ -238,7 +238,7 @@ padding: 8px;
      text-align:center;
      width: 400px;
      height: 280px;
-     margin-left: 260px;
+     margin-left: 270px;
      margin-top: 30px;
      padding:30px;
      border-radius: 10px;
@@ -474,6 +474,7 @@ a.btn_4:hover span {
     width: 600px;
     margin: 10px;
     margin-left: 202px;
+    border-radius: 5px;
     }
     
 .six-form {

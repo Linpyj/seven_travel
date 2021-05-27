@@ -23,12 +23,9 @@
 
        <div class="cp_select cp_sl04 ">
               <select name="prefecture" type="text" class="form-control">
-                     <option value="{{ request('prefecture') }}" disabled selected style='display:none;'>都道府県</option>
-                     <?php
-                     foreach ( $prefectures as $prefecture ) {
-                         echo '<option value="', $prefecture, '">', $prefecture, '</option>';
-                     }
-                     ?>
+                     @foreach ($prefectures as $prefecture)
+                         <option value="{{ $prefecture }}" {{ old('prefecture', $hotel->prefecture) == $prefecture ? 'selected' : '' }}>{{ $prefecture }}</option>
+                     @endforeach
               </select>
         </div>
     </label>
@@ -61,10 +58,6 @@
            value="{{ old('remarks', $hotel->remarks)}}"></label>
     </p>
     <p>
-
-    <label>画像<br>
-       <input type="file" name="image" value="{{ old('image', $hotel->image) }}"></label></label>
-    </p>
 
     <br>
     <section>
