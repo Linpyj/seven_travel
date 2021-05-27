@@ -16,7 +16,7 @@
         </dd>
         <dt>プランの価格</dt>
         <dd>
-            <input type="" name="price" value="{{ old('price', $plan->price)}}">
+            <input type="number" name="price" value="{{ old('price', $plan->price)}}">
         </dd>
         <dt>プランの部屋数</dt>
         <dd>
@@ -30,8 +30,9 @@
 
     </dl>
     
-    <button type="submit">変更</button>
-
+    <section>
+        <button type="submit" class="btn_1"><span>変更</span></button>
+    </section>
 </form>
 
 @endsection

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@include('commons/flash')
+
 <h1>プラン追加</h1>
 @include('commons/flash')
 <div class="old-form">
@@ -26,7 +26,7 @@
     
         <dt>見どころ</dt>
         <dd>
-            <textarea name="remarks" row="5" placeholder="100文字以内で入力してください。">{{ old('remark', $plan->remark)}}</textarea>
+            <textarea name="remark" row="5" placeholder="100文字以内で入力してください。">{{ old('remark', $plan->remark)}}</textarea>
         </dd>
         <dd>
             <input type="hidden" name="hotel_id" value="{{$hotel_id}}">
