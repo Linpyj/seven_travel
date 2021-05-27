@@ -23,7 +23,7 @@
     </section>
     </div>
 
-    <p id="register-script">会員登録がおす出ない方はこちら</p>
+    <p id="register-script">会員登録がおすみでない方はこちら</p>
 
     <section>
         <a href="{{ route('register') }}" class="btn_1"><span>新規登録</span></a>
