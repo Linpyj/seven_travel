@@ -16,7 +16,10 @@
         <a href="{{ route('home') }}" class="btn_3"><span>ホームに戻る</span></a>
     </section>
 @else
-    <p>満室です</p>
+    <p class="script">申し訳ございません、満室です。別のホテルをご予約ください。</p>
+    <section>
+        <a href="{{ route('home') }}" class="btn_3"><span>ホームに戻る</span></a>
+    </section>
 @endif
 
 @endsection
