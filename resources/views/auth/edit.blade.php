@@ -9,23 +9,23 @@
     <div class="second-form">
               <p>
                      <label>名前<br>
-                     <input type="text" name="name" placeholder="必須" value="{{old('name')}}"></label>
+                     <input type="text" name="name" placeholder="必須" value="{{old('name', $user->name)}}"></label>
               </p>
               <p>
                      <label>住所<br>
-                     <input type="text" name="address" placeholder="例：東京都豊島区1-1-1" value="{{old('address')}}"></label>
+                     <input type="text" name="address" placeholder="例：東京都豊島区1-1-1" value="{{old('address', $user->address)}}"></label>
               </p>
               <p>
                      <label>電話番号<br>
-                     <input type="tel" name="tel" placeholder="例：08012345678" value="{{old('tel')}}"></label>
+                     <input type="tel" name="tel" placeholder="例：08012345678" value="{{old('tel', $user->tel)}}"></label>
               </p>
               <p>
                      <label>メールアドレス<br>
-                     <input type="email" name="email" placeholder="必須" value="{{old('email')}}"></label>
+                     <input type="email" name="email" placeholder="必須" value="{{old('email', $user->email)}}"></label>
               </p>
               <p>
                      <label>生年月日<br>
-                     <input type="date" name="birthday" value="{{old('birthday')}}"></label>
+                     <input type="date" name="birthday" value="{{old('birthday', $user->birthday)}}"></label>
               </p>
               <p>
                      <label>パスワード<br>
