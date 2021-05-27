@@ -56,7 +56,7 @@
         <tr>
 
             <td>{{ $review->title }}</td>：
-            <td>{!! nl2br(e($review->content)) !!}</td>
+            <td>{!! nl2br(e($review->content)) !!}</td>:
             <td>{{ $review->created_at }}</td><br><hr>
         </tr>
         @endforeach
