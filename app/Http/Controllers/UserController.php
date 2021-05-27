@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {   public function index(Request $request, User $user){
@@ -56,7 +57,7 @@ class UserController extends Controller
             'name' => 'required|max:50',
             'address' => 'required|max:200',
             'tel' => 'required|numeric|digits_between:8,11',
-            'email' => 'required|email|max:50|unique:users',
+            'email' => ['required','email', 'max:50',Rule::unique('users')->ignore($user->id)],
             'birthday' => 'required',
             'password' => 'required|min:8|confirmed',
             ]);
