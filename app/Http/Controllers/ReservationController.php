@@ -35,17 +35,15 @@ class ReservationController extends Controller
     {   
         $reservation = new Reservation;
         $plan_id = request('plan_id');
-        // dd($plan_id);
         $plan = Plan::where('id', $plan_id)->first();
-        // dd($plan);
         return view('reservations.create', ['reservation' => $reservation, 'plan' => $plan]);
     }
 
     public function show(Request $request)
     {
         $this->validate($request, [
-            'check_in' => 'required',
-            'check_out' => 'required',
+            'check_in' => 'required|after:now',
+            'check_out' => 'required|after:now + 1 day',
         ]);
         $input_data = array(
             'check_in' => $request->check_in,

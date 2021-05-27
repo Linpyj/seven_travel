@@ -58,9 +58,6 @@
            value="{{ old('remarks', $hotel->remarks)}}"></label>
     </p>
     <p>
-    <label>画像<br>
-       <input type="file" name="image" value="{{ old('image', $hotel->image) }}"></label></label>
-    </p>
 
     <br>
     <section>

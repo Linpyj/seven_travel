@@ -117,13 +117,7 @@ class HotelController extends Controller
             'prefecture' => 'required',
         ]);
         $hotel->timestamps = false;
-        if($request->file('image')){
-            $filename = $request->file('image')->store('public');
-            $request->image = str_replace('public/','',$filename);
-        }
         $hotel->update($request->all());
-        $hotel->image = $request->image;
-        $hotel->save();
         $hotels = Hotel::all();
         return view('hotels.index', ['hotels' => $hotels]);
     }
