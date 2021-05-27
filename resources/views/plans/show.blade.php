@@ -4,9 +4,9 @@
 
 <h1>プラン詳細</h1>
 @if ($plan->hotel->image == '')
-    <p><img src="{{ asset('/storage/'.'defaultImage.png') }}" alt="default"></p>
+    <p><img src="{{ asset('/storage/'.'defaultImage.png') }}" alt="default" class="hotel_image"></p>
 @else
-    <p><img src="{{ asset('/storage/'.$plan->hotel->image) }}" alt="{{ $plan->hotel->id }}"></p>
+    <p><img src="{{ asset('/storage/'.$plan->hotel->image) }}" alt="{{ $plan->hotel->id }}"  class="hotel_image"></p>
 @endif
 
 <div class="fifth-form">
