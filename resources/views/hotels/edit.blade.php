@@ -59,10 +59,6 @@
     </p>
     <p>
 
-    <label>画像<br>
-       <input type="file" name="image" value="{{ old('image', $hotel->image) }}"></label></label>
-    </p>
-
     <br>
     <section>
            <button type="submit" class="btn_2"><span>変更する</span></button>
