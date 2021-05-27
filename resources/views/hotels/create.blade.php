@@ -38,11 +38,13 @@
         </p>
        <p>
             <label>県<br>
-              <select name="prefecture" type="text" class="form-control">
-                @foreach ($prefectures as $prefecture)
-                    <option value="{{ $prefecture }}" {{ request('prefecture') == $prefecture ? 'selected' : '' }}>{{ $prefecture }}</option>
-                @endforeach
-            </select>
+                <div class="cp_select cp_sl04">
+                    <select name="prefecture" type="text" class="form-control">
+                        @foreach ($prefectures as $prefecture)
+                            <option value="{{ $prefecture }}" {{ request('prefecture') == $prefecture ? 'selected' : '' }}>{{ $prefecture }}</option>
+                        @endforeach
+                    </select>
+                </div>
             </label>
         </p>
         <p>
