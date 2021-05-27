@@ -25,13 +25,13 @@
         
         <dt>見どころ</dt>
         <dd>
-            <textarea name="remark" row="5">{{ old('remark', $plan->remark)}}</textarea>
+            <textarea name="remarks" row="5">{{ old('remark', $plan->remark)}}</textarea>
         </dd>
 
     </dl>
     
     <section>
-        <button type="submit" class="btn_1"><span>変更</span></button>
+        <button type="submit" class="btn_2"><span>変更</span></button>
     </section>
 </form>
 
