@@ -35,14 +35,15 @@
 </div>
 
 <br>
-<section>
-    <button name="back" type="submit" value="true" class="btn_2"><span>戻る</span></button>
-</section>
-
     <section>
         <button name="reservation_store" type="submit" value="true" class="btn_2"><span>登録</span></button>
     </section>
 
 </form>
+
+<br>
+<section>
+    <a href="{{ url()->previous() }}" class="btn_1"><span>戻る</span></a>
+</section>
     
 @endsection
