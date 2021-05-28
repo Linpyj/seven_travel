@@ -14,7 +14,7 @@
 <dd>
     <input type="number" name="price_min" value="{{ request('price_min') }}" placeholder="円"> 
     <!-- request()ヘルパ関数で現在入力した最小価格を初期値として表示する -->
-    ～
+    　～
     <input type="number" name="price_max" value="{{ request('price_max') }}" placeholder="円">
     <!-- request()ヘルパ関数で現在入力した最大価格を初期値として表示する -->
 

@@ -9,9 +9,9 @@ input[type=number],
 input[type=time],
 textarea {
     width: 360px;
-    padding: 8px;
-    margin: 20px;
-    border-radius: 4px;
+    padding: 7px;
+    margin: 10px;
+    border-radius: 8px;
     border: 1.5px solid #009588;
 }
 /* フォームレイアウトここまで　*/
@@ -22,7 +22,6 @@ body {
     padding:0; /*　追加*/
     margin:0; /*　追加*/
 }
-
 
 .container {
     max-width: 1000px;
@@ -46,7 +45,6 @@ h2 {
   text-align: center;
   }
  
- 
 
 /* ヘッダーレイアウト */
 header {
@@ -67,6 +65,10 @@ header .brand {
     text-decoration:none;
     font-size:22px;
     font-weight:bold;
+}
+
+header a:visited{
+	color: #ffffff;
 }
 
 
@@ -127,13 +129,13 @@ footer .footer {
 table {
      border-collapse: collapse;
      width: 100%;
-     height:280px;
+     height: 100%;
      margin-left:20px;
      border: 1.5px solid  #009588;
 }
 
 table th{
-  padding: 10px 15px;
+  padding: 15px 15px;
   border-bottom: 1px solid #ddd;  
   color:  #009588;
 }
@@ -471,22 +473,27 @@ a.btn_4:hover span {
 
 /*ホテル詳細画面レイアウト */
 .hotel_image {
-    width: 300px;
-    margin: 10px;
+    width: 450px;
+    height:310px;
+    margin: 20px;
+    margin-left:90px;
     border-radius: 5px;
+    float:left;
     }
+
+.hotel-container {
+  border-radius: 10px;
+  border: 1.5px solid  #009588 
+}
     
 .six-form {
-  width: 60%;
+  width: 100%;
   height:100%;
-  margin-left: 90px;
   margin-top: 30px;
-  padding:10px;
   text-align:center;
   border-radius: 10px;
-  border: 1.5px solid  #009588 ;
-  background-color: #ffffff;
-  font-size:18px
+  background-color:#e8e8e8;
+  border: 1.5px solid  #e8e8e8
  }
 
  #hotel_name{
@@ -498,8 +505,8 @@ a.btn_4:hover span {
 /*セレクトレイアウト*/
 .cp_select {
 	overflow: hidden;
-	width: 40%;
-	margin: 1.3em ;
+	width: 37%;
+	margin: 0.7em ;
 }
 
 .cp_select select {
