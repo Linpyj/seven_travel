@@ -42,7 +42,7 @@
                         @endforeach            
                     </tbody>
                 </table>
-        
+                {{ $hotels->appends(Request::all())->links('vendor.pagination.sample-pagination') }}
         @endif
 
     @elseif(!!(Auth::user()))
