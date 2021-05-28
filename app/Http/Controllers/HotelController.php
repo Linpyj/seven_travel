@@ -19,10 +19,13 @@ class HotelController extends Controller
     {   
         $hotel_name = $request->input('name');
         if (!!$hotel_name) {
-            $hotels = Hotel::where('name', 'like', '%' . $hotel_name . '%')->get();
+            //$hotels = Hotel::where('name', 'like', '%' . $hotel_name . '%')->get();
+            $hotels = Hotel::where('name', 'like', '%' . $hotel_name . '%')->paginate(10);
+
 
         } else {
-            $hotels = Hotel::all();
+            //$hotels = Hotel::all();
+            $hotels = Hotel::paginate(10);
         }
         return view('hotels.index', ['hotels' => $hotels]);
     }
