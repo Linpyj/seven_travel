@@ -121,7 +121,7 @@ class HotelController extends Controller
         ]);
         $hotel->timestamps = false;
         $hotel->update($request->all());
-        $hotels = Hotel::all();
+        $hotels = Hotel::paginate(10);
         return view('hotels.index', ['hotels' => $hotels]);
     }
 
