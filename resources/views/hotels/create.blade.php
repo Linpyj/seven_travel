@@ -51,12 +51,13 @@
             <label>画像<br>
                 <input type="file" name="image" value="{{ old('image') }}"></label>
         </p>
-        </div>
+       
 
         <br>
         <section>
             <button type="submit" onclick="createHotel()" class="btn_2"><span>追加する</span></button>
         </section>
+        </div>
     </form>
 
     <script type="text/javascript">
