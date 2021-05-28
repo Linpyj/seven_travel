@@ -571,16 +571,13 @@ a.btn_4:hover span {
     }
 /* 口コミ投稿画面レイアウトここまで*/
 
-/*予約画面レイアウト*/
+/*プラン詳細画面レイアウト*/
 .fifth-form {
-  width: 50%;
+  width: 100%;
   height:100%;
-  margin-left: 210px;
-  margin-top: 30px;
-  padding:30px;
-  text-align:center;
+  padding:20px;
   border-radius: 10px;
   border: 1.5px solid  #009588 ;
   background-color: #ffffff;
  }
-/*予約画面レイアウトここまで*/
+/*プラン画面レイアウトここまで*/
