@@ -10,20 +10,36 @@
     <p><img src="{{ asset('/storage/'.$hotel->image) }}" alt="{{ $hotel->id }}" class="hotel_image"></p>
 @endif
 
-<div class="six-form">
-<dl>
+<div class="hotel-container">
+    <br>
     <dt>ホテル名</dt>
-    <dt><dd>{{ $hotel->name }}</dd></dt>
+    <dd>{{ $hotel->name }}</dd>
+
+    <br>
+    <dt>カテゴリ</dt>
+    <dd>{{ $hotel->category->name }}</dd>
     
+    <br>
+    <dt>住所</dt>
+    <dd>{{ $hotel->address }}</dd>
+    
+    <br>
+    <dt>電話番号</dt>
+    <dd>{{ $hotel->tel }}</dd>
+
+</div>
+    
+    
+    
+<div class="six-form">  
     <br>
     <dt>見どころ</dt>
     <dd>{{ $hotel->remarks }}</dd>
     
     <br>
-    <dt>カテゴリ</dt>
-    <dd>{{ $hotel->category->name }}</dd>
-
-<div class="six-form">  
+    <dt>チェックイン時間-チェックアウト時間<dt>
+    <dd> {{ $hotel->check_in }}-{{ $hotel->check_out }}</dd>
+    
     <br>
     <dt>プラン</dt><br>
     @foreach($plans as $plan)
@@ -33,18 +49,7 @@
         </tr>
     @endforeach
     
-    <br>
-    <dt>住所</dt>
-    <dd>{{ $hotel->address }}</dd>
     
-    <br>
-    <dt>電話番号</dt>
-    <dd>{{ $hotel->tel }}</dd>
-   
-    <br>
-    <dt>　チェックイン時間-チェックアウト時間<dt>
-    <dd> {{ $hotel->check_in }}-{{ $hotel->check_out }}</dd>
-
     
     <br>
     <dt>口コミ</dt>
