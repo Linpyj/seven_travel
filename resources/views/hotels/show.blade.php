@@ -75,7 +75,10 @@
 
 <p>
     @if(Auth::user()->is_admin)
+
     <h2>管理者メニュー</h2>
+
+    <div class=btn_container>
         <section>
             <a href="{{ route('plans.create', ['hotel' => $hotel->id]) }}" class="btn_3"><span>プランの追加</span></a>
         </section>
@@ -99,7 +102,8 @@
                         document.getElementById('delete-form').submit();
                     }
                 }
-            </script>    
+            </script>
+        </div>    
     @endif
 </p>
 

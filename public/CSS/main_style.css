@@ -461,13 +461,13 @@ a.btn_4:hover span {
 /*マイページレイアウトここまで */
 .hotel-form {
      width: 400px;
-     height:1000px;
+     height:100%;
      margin-left: 260px;
      margin-top: 30px;
      padding:30px;
      border-radius: 10px;
-     border: 1.5px solid  #009588;
-     background-color: #ffffff;
+     border: 20px solid  #e8e8e8;
+     background-color: #e8e8e8;
     }
 /*ホテル追加画面レイアウトここまで*/
 
