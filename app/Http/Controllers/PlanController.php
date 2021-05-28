@@ -129,7 +129,7 @@ class PlanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Plan $plan)
-    {
+    {  
         $plan = Plan::with('hotel')->where('id', $plan->id)->first();
         return view('plans.show', ['plan' => $plan]);
     }

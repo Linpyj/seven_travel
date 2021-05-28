@@ -471,14 +471,13 @@ a.btn_4:hover span {
 
 /*ホテル詳細画面レイアウト */
 .hotel_image {
-    width: 600px;
+    width: 300px;
     margin: 10px;
-    margin-left: 202px;
     border-radius: 5px;
     }
     
 .six-form {
-  width: 80%;
+  width: 60%;
   height:100%;
   margin-left: 90px;
   margin-top: 30px;
