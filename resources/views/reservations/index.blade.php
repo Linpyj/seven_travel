@@ -19,7 +19,7 @@
         {{-- <a href="{{ route('reviews.create', $reservation) }}">口コミを投稿する</a> --}}
 
         <section>
-            <a href="{{ route('plans.show', $reservation) }}" class="btn_1"><span>再予約する</span></a>
+            <a href="{{ route('plans.show', $reservation->plan_id) }}" class="btn_1"><span>再予約する</span></a>
         </section>
     @endforeach
 @else

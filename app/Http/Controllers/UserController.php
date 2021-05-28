@@ -62,7 +62,8 @@ class UserController extends Controller
             'password' => 'required|min:8|confirmed',
             ]);
         $user->update($request->all());
-        return redirect(route('users.index'));
+        $reservations=Reservation::where('id' ,\Auth::user()->id)->get();
+        return view('auth.mypage', ['reservations' => $reservations]);
     }
 
     public function destroy(User $user) {

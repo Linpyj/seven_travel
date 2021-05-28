@@ -4,10 +4,6 @@
 
 <h1>ホテル情報</h1>
 
-<dl>
-    <dd id="hotel_name">{{ $hotel->name }}</dd>
-</dl>
-
 @if ($hotel->image == '')
     <p><img src="{{ asset('/storage/'.'defaultImage.png') }}" alt="default" class="hotel_image"></p>
 @else
@@ -16,13 +12,18 @@
 
 <div class="six-form">
 <dl>
+    <dt>ホテル名</dt>
+    <dt><dd>{{ $hotel->name }}</dd></dt>
+    
+    <br>
     <dt>見どころ</dt>
     <dd>{{ $hotel->remarks }}</dd>
     
     <br>
     <dt>カテゴリ</dt>
     <dd>{{ $hotel->category->name }}</dd>
-    
+
+<div class="six-form">  
     <br>
     <dt>プラン</dt><br>
     @foreach($plans as $plan)
