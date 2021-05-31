@@ -79,6 +79,30 @@
             <img src="/sample5.jpg" alt="fall_hotel" >
             <img src="/sample6.jpg" alt="winter_hotel">
         </div>
+
+        <p class="subtitle">HOW TO USE ?</p>
+        <p class="script">利用方法はたったの3ステップ！</p>
+        <br>
+        <div class="box img1" >
+            <span>1</span>
+        </div>
+
+        <div class="box img2">
+            <span>2</span>
+        </div>
+
+        <div class="box img3" >
+            <span>3</span>
+        </div>
         
+        
+        <div class="step">
+        
+        
+        <p>プラン検索から<br>希望条件に合うプランを選択!</p>
+        <p>予約フォームから<br>訪問日を入力して予約！</p>
+        <p>現地でお支払い！</p>
+        </div>
+        <br>
     @endif
 @endsection
