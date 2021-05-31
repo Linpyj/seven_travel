@@ -206,8 +206,76 @@ padding: 8px;
      font-weight: bold;
      color: #c1c7c6;
      text-align: center;
-     margin: 5px;
+     margin-top:60px;
     }
+
+    /* --- 親要素 ------------------------ */
+.imgArea {
+  display    : inline-block;
+  position   : relative;
+  padding    : 0
+}
+ /* --- 文字BOX(子要素) ------------------ */
+.over {
+  position   : absolute;                   /* 親要素からの絶対位置 */
+  box-sizing : border-box;
+  white-space: nowrap;                     /* 折返しなし */
+  display    : b0ock;                      /* ブロック要素にする */
+  width      : 56%;                       /* 親要素の幅に合わせる */
+  color      : #ffffff;    /* 文字色（透明度） */
+  background : #009588;  /* 背景色（透明度） */
+  top        : 60%;                        /* 親要素からの上位置 */
+  left       : 0;                          /* 親要素からの左位置 */
+  text-align : right;                     /* 文字位置 */
+  transform  : translateY(-50%);           /* 文字BOXの位置ずらし */
+  padding    : 10px;                       /* BOX内の余白 */
+  font-size  : 35pt;                       /* 文字サイズ */
+  font-weight: bold;                       /* 太字 */
+  line-height: em;                        /* 1行の高さ */
+  margin-left: 644px;
+}
+
+
+ /*=== 画像の表示エリア ================================= */
+.slide {
+  position   : relative;
+  overflow   : hidden;
+                    /* 画像のサイズに合わせて変更ください */
+  width      : 550px;
+  height     : 400px;
+  margin     : auto;      /* サンプルは中央寄せの背景：白 */
+  background : #fff;
+}
+ 
+ /*=== 画像の設定 ======================================= */
+.slide img {
+  display    : block;
+  position   : absolute;
+                      /* 画像のサイズを表示エリアに合せる */
+  width      : inherit;
+  height     : inherit;
+  left       : 100%;
+  animation  : slideAnime 9s ease infinite;
+}
+ 
+ /*=== スライドのアニメーションを段差で開始する ========= */
+.slide img:nth-of-type(1) { animation-delay: 0s }
+.slide img:nth-of-type(2) { animation-delay: 3s }
+.slide img:nth-of-type(3) { animation-delay: 6s }
+ 
+ /*=== スライドのアニメーション ========================= */
+@keyframes slideAnime{
+   0% { left: 100%  }
+   5% { left: 0     }
+  28% { left: 0     }
+  33% { left: -100% }
+ 100% { left: -100% }
+}
+
+
+.copy{
+	font-size:10px;
+}
 
     .top_image {
     width: 280px;
@@ -218,15 +286,11 @@ padding: 8px;
     }
 
     .site_image {
-    	width:100%;
-     margin-bottom: 90px;
+    	width:1000px;
+    	margin-top:-20px;
+    	margin-left:-130px;
+    
       }
-
-      
-    #catch {
-      text-align: center;
-      font-size: 12px;
-    }
 
     .season {
     	display: flex;

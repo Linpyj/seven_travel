@@ -46,16 +46,20 @@
         @endif
 
     @elseif(!!(Auth::user()))
-
-    <img src="/site-top.png"  class="site_image"></a>
-        <!--<div class="top">
-            <h1 class="title">SEVEN TRAVEL</h1>
-            <p class="copy">行きたい、がきっと見つかる。</p>
-            <p>This is sample texts.This is sample texts.This is sample texts.This is sample texts.</p>
+    
+    <div class="imgArea">
+        <img src="/site-top.jpg"  class="site_image">
+        <div class="over" id="makeImg">
+            SEVEN TRAVEL　
+            <p class="copy"> All journeys have secret destinations of which the traveler is unaware.</p>
+        </div>
+    </div>
+         <!-- <p class="copy">行きたい、がきっと見つかる。</p>
+            
         </div>-->
         <br>
-        <p class="subtitle">SEVEN TRAVELおすすめのホテル</p>
-        <p id="catch">SEVEN TRAVEL厳選！各シーズンおすすめホテル</p>
+        <p class="subtitle">SEVEN TRAVEL SELECTION</p>
+        <br>
         <a href="{{ route('hotels.show', 2) }}"><img src="/sample2.jpeg" alt="spring_hotel" class="top_image"></a>
         <a href="{{ route('hotels.show', 5) }}"><img src="/sample1.jpg" alt="fall_hotel" class="top_image"></a>
         <a href="{{ route('hotels.show', 8) }}"><img src="/sample3.jpeg" alt="winter_hotel" class="top_image"></a>
@@ -65,5 +69,16 @@
             <p>夏におすすめのホテル</p>
             <p>冬におすすめのホテル</p>
         </div>
+
+        <br>
+        <p class="subtitle">WHAT'S SEVEN  TRAVEL ?</p>
+        <p class="script">SEVEN TRAVELはホテル予約サービスです。全国のホテルからあなたの条件にあうホテルを見つけ出します。</p>
+
+        <div class="slide" id="makeImg">
+            <img src="/sample4.jpg" alt="spring_hotel" >
+            <img src="/sample5.jpg" alt="fall_hotel" >
+            <img src="/sample6.jpg" alt="winter_hotel">
+        </div>
+        
     @endif
 @endsection
